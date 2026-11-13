@@ -35,3 +35,5 @@
 }
 @media(max-width:360px){.site-header{padding-inline:5%}.site-header .brand{font-size:16px}.site-header .brand b{font-size:24px}.site-header .brand small{font-size:5px}.nav-toggle{gap:8px;padding:9px}.grid .card,.grid.home-editorial .card:first-child,.grid.home-editorial .card:last-child{grid-template-columns:78px minmax(0,1fr);min-height:149px}.grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3{font-size:15px}.grid .card .card-copy{padding:11px}.nav-label{font-size:11px}#nav button{gap:8px;padding:13px 10px}.nav-game-note{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.site-header,.toggle-mark i,.nav-open #nav{transition:none!important;animation:none!important}}
+
+@media(max-width:700px){.grid .card,.grid.home-editorial .card:first-child,.grid.home-editorial .card:last-child{min-height:184px}.grid .card .card-copy,.grid.home-editorial .card:first-child .card-copy,.grid.home-editorial .card:last-child .card-copy{padding-top:17px;padding-bottom:16px}.grid .card p{-webkit-line-clamp:2;line-height:1.8}}
