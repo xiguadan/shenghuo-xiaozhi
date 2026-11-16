@@ -1,0 +1,106 @@
+/* Reading, returning and playing should fit comfortably in the viewport. */
+h1,h2,h3 { text-wrap:balance; overflow-wrap:break-word; }
+.hero h1 em { white-space:normal; }
+.detail-main h1 { font-size:clamp(27px,3.2vw,38px); line-height:1.65; }
+.detail-toolbar { position:sticky; top:var(--site-header-height,88px); z-index:8; display:flex; align-items:center; gap:16px; padding:10px 0; background:#fcfaf5f5; backdrop-filter:blur(12px); border-bottom:1px solid #e6e0d3; transition:top .25s; }
+body:has(.site-header.header-away) .detail-toolbar { top:0; }
+.detail-toolbar .back { display:inline-flex; align-items:center; gap:10px; flex-shrink:0; border:1px solid #dce3d5; border-radius:24px; background:#eaf0e4; color:#315f60; padding:7px 14px 7px 7px; min-height:42px; font-size:12px; }
+.back-mark { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#fffaf1; font-size:19px; }
+.toolbar-title { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:#62685f; font-size:11px; }
+.toolbar-home { margin-left:auto; flex-shrink:0; color:#315f60; font-size:11px; text-decoration:none; padding:12px 0 12px 10px; }
+.detail-wrap { padding-top:16px; }
+.detail-layout { margin-top:26px; }
+.step { scroll-margin-top:calc(var(--site-header-height,88px) + 90px); }
+.price-home { display:inline-flex; align-items:center; gap:9px; border-radius:22px; background:#edf0e5; color:#315f60; padding:8px 14px 8px 8px; font-size:12px; text-decoration:none; min-height:40px; }
+.price-home>span { background:#fffaf1; border-radius:50%; width:26px; height:26px; display:grid; place-items:center; font-size:17px; }
+.price-notebook:not(.book-preview) .notebook-heading { padding:18px 0 22px; gap:18px; }
+.price-notebook:not(.book-preview) .notebook-heading h2 { font-size:clamp(25px,3vw,36px); margin:10px 0; }
+.price-notebook:not(.book-preview) .book-stamp { width:90px; height:90px; }
+.price-notebook:not(.book-preview) .notebook-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px 16px; }
+.price-notebook:not(.book-preview) .price-sheet { padding:17px 16px 14px; box-shadow:0 3px 0 -1px #e8e4d8; }
+.price-notebook:not(.book-preview) .sheet-topline { margin:2px 0 12px; font-size:7px; }
+.price-notebook:not(.book-preview) .sheet-heading { min-height:64px; gap:8px; }
+.price-notebook:not(.book-preview) .sheet-heading h3 { font-size:21px; letter-spacing:1px; margin:7px 0; }
+.price-notebook:not(.book-preview) .sheet-heading img { width:70px; height:57px; }
+.price-notebook:not(.book-preview) .sheet-rule { margin:11px 0 7px; }
+.price-notebook:not(.book-preview) .sheet-items { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:14px; }
+.price-notebook:not(.book-preview) .sheet-item { padding:6px 0; gap:4px; min-height:31px; }
+.price-notebook:not(.book-preview) .item-name { font-size:10px; }
+.price-notebook:not(.book-preview) .item-name small { font-size:8px; line-height:1.5; }
+.price-notebook:not(.book-preview) .item-amount { font-size:18px; white-space:nowrap; }
+.price-notebook:not(.book-preview) .item-actions { position:static; transform:none; opacity:1; }
+.price-notebook:not(.book-preview) .item-actions a { font-size:12px; padding:2px; }
+.price-notebook:not(.book-preview) .sheet-note { margin:12px 0 7px; padding:9px 10px; gap:6px; }
+.price-notebook:not(.book-preview) .sheet-note p { font-size:9px; line-height:1.7; }
+.price-notebook:not(.book-preview) .sheet-source { font-size:8px; line-height:1.7; padding-top:7px; }
+@media(min-width:701px) and (max-width:1100px) { .price-notebook:not(.book-preview) .notebook-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) {
+ .detail-main h1 { font-size:28px; letter-spacing:.3px; }
+ .toolbar-title { display:none; }
+ .detail-toolbar { gap:10px; padding:7px 0; }
+ .detail-toolbar .back { font-size:11px; }
+ .hero h1 { font-size:clamp(33px,9.4vw,43px); }
+ .price-notebook:not(.book-preview) .notebook-grid { grid-template-columns:1fr; gap:20px; }
+ .price-notebook:not(.book-preview) .notebook-heading h2 { font-size:27px; }
+ .price-notebook:not(.book-preview) .book-stamp { display:none; }
+ .price-notebook:not(.book-preview) .price-sheet { padding:15px 16px 12px; }
+ .price-notebook:not(.book-preview) .sheet-heading { min-height:58px; }
+ .price-notebook:not(.book-preview) .sheet-heading h3 { font-size:22px; }
+ .price-notebook:not(.book-preview) .sheet-heading img { width:62px; height:51px; }
+ .price-notebook:not(.book-preview) .sheet-items { column-gap:14px; }
+ .price-notebook:not(.book-preview) .item-amount { font-size:18px; }
+ .price-notebook:not(.book-preview) .item-name { font-size:11px; }
+ .game-wrap { padding-top:18px; }
+ .game-intro { margin-bottom:15px; padding-bottom:12px; }
+ .game-intro h1 { font-size:24px; line-height:1.4; margin:0; }
+ .game-intro h1 br,.game-intro h1 em,.game-intro h1>span,.game-intro p,.game-postmark,.game-intro .eyebrow { display:none; }
+ .game-board.game-worktable { gap:13px; }
+ .game-worktable .game-case { padding:13px 15px; gap:4px 10px; grid-template-columns:minmax(0,1fr) 60px; }
+ .game-worktable .game-case h2 { font-size:18px; line-height:1.5; margin:6px 0; }
+ .game-worktable .game-case>p { font-size:11px; line-height:1.7; }
+ .puzzle-case-art img { height:46px; }
+ .game-worktable .game-instructions { font-size:9px; margin-top:4px; padding-top:5px; line-height:1.6; }
+ .game-worktable .game-sequence { padding:13px 12px; }
+ .game-worktable .sorting-cards { gap:6px; margin-top:10px; }
+ .game-worktable .sort-card { min-height:54px; padding:4px 6px 4px 11px; gap:7px; }
+ .game-worktable .sort-position { font-size:18px; padding-right:7px; }
+ .game-worktable .sort-content { min-height:44px; font-size:11px; line-height:1.6; gap:5px; }
+ .game-worktable .sort-grip { display:none; }
+ .game-worktable .sort-movers { flex-direction:row; gap:3px; }
+ .game-worktable .sort-movers button { width:28px; height:44px; }
+ .game-worktable .selection-help { margin:9px 0; padding:5px 8px; font-size:9px; line-height:1.6; }
+ .game-worktable .game-actions button { min-height:42px; padding:8px 12px; }
+ .game-worktable .game-skip { margin-top:9px; padding:5px 0; }
+ .game-note { margin-top:18px; }
+}
+@media(min-width:851px) {
+ .packing-wrap { max-width:1150px; padding:20px 4% 45px; }
+ .packing-heading { margin-bottom:14px; }
+ .packing-heading h1 { font-size:33px; margin:5px 0; line-height:1.4; }
+ .packing-heading p { font-size:11px; }
+ .packing-ticket { min-height:75px; padding:10px; }
+ .packing-ticket b { font-size:28px; }
+ .pack-trip-tabs { padding-top:12px; margin-bottom:24px; }
+ .pack-trip-tabs button { min-height:36px; padding:8px 13px; }
+ .packing-table { grid-template-areas:'case inventory' 'case notes'; grid-template-columns:minmax(240px,.85fr) minmax(350px,1.3fr); gap:18px 32px; align-items:start; max-width:1000px; }
+ .packing-table>.suitcase-wrap { justify-self:center; width:min(100%,calc(clamp(230px,calc(100svh - 420px),340px) * var(--pack-ratio) + 42px)); padding:14px 10px 12px; }
+ .packing-table>.packing-inventory { border-top:0; padding:0; }
+ .packing-inventory>div:first-child>span { font-size:7px; }
+ .packing-inventory h2 { font-size:20px; margin:4px 0; }
+ .packing-inventory p { font-size:10px; margin-bottom:12px; }
+ .pack-shelf { grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+ .pack-supply { padding:10px 5px 7px; }
+ .pack-supply-stage { height:62px; margin-bottom:3px; }
+ .pack-supply-stage>.pack-supply-art { transform:scale(.8); }
+ .pack-supply-copy strong { font-size:10px; }
+ .pack-supply-copy small { font-size:8px; }
+ .pack-case-tools { gap:4px; margin-top:9px; }
+ .pack-case-tools>span { padding-bottom:0; }
+ .pack-case-tools button { font-size:9px; padding:6px 3px; min-height:33px; }
+ .packing-table>.pack-notes { padding-top:0; }
+ .pack-notes>.eyebrow,.pack-notes>h2 { display:none; }
+ .pack-notes>ol { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+ .pack-notes li { padding:9px 0 0; }
+ .pack-notes li:before { position:static; display:inline; font-size:14px; margin-right:5px; }
+ .pack-notes li>span { font-size:9px; }
+}
