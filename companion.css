@@ -1,10 +1,30 @@
-.goose-companion { position:fixed; z-index:7; width:78px; height:96px; border:0; padding:0; border-radius:35%; background:transparent; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
-.goose-drift { display:block; width:100%; height:100%; pointer-events:none; animation:goose-drift 9s ease-in-out infinite; transform-origin:50% 70%; }
-.goose-drift img { display:block; width:100%; height:100%; object-fit:contain; pointer-events:none; }
+/* Soft, articulated white goose. Its outer position is controlled by the walking path. */
+.goose-companion { position:fixed; z-index:7; width:92px; height:104px; border:0; padding:0; border-radius:35%; background:transparent; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+.goose-scene { display:block; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.goose-puppet { transform-origin:100px 170px; }
+.goose-facing { transform-origin:0 0; }
+.faces-left .goose-facing { transform:translateX(200px) scaleX(-1); }
+.goose-leg-back { transform-origin:85px 155px; }
+.goose-leg-front { transform-origin:117px 155px; }
+.goose-wing-back { transform-origin:116px 133px; }
+.goose-wing-front { transform-origin:64px 137px; }
+.goose-eyes { transform-origin:132px 38px; animation:goose-blink 8s infinite; }
+.goose-wing-front { animation:goose-breathe 4s ease-in-out infinite; }
+.goose-flutter-lines { opacity:0; }
+.is-walking .goose-leg-back { animation:goose-step .9s ease-in-out infinite; }
+.is-walking .goose-leg-front { animation:goose-step .9s -.45s ease-in-out infinite; }
+.is-walking .goose-puppet { animation:goose-waddle .9s ease-in-out infinite; }
 .goose-companion.is-dragging { cursor:grabbing; z-index:80; }
-.goose-companion.is-dragging .goose-drift { animation-play-state:paused; filter:drop-shadow(0 5px 4px #9c80661a); }
+.is-dragging .goose-puppet { animation:goose-struggle .3s ease-in-out infinite; filter:drop-shadow(0 5px 4px #9c806614); transform-origin:100px 80px; }
+.is-dragging .goose-wing-front { animation:goose-flap .21s ease-in-out infinite alternate; }
+.is-dragging .goose-wing-back { animation:goose-flap .21s -.1s ease-in-out infinite alternate-reverse; }
+.is-dragging .goose-leg-back { animation:goose-kick .25s ease-in-out infinite alternate; }
+.is-dragging .goose-leg-front { animation:goose-kick .25s -.12s ease-in-out infinite alternate-reverse; }
+.is-dragging .goose-flutter-lines { opacity:.7; }
+.is-dragging .goose-shadow { opacity:0; }
+.is-landing .goose-puppet { animation:goose-land .55s ease-out both; }
 .goose-companion:focus-visible { outline:2px dashed #b69a7a; outline-offset:3px; }
-.goose-tooltip { position:absolute; bottom:100%; right:0; white-space:nowrap; padding:5px 9px; background:#fffaf1; color:#8b735e; border-radius:12px; font-size:10px; opacity:0; pointer-events:none; transition:opacity .2s; }
+.goose-tooltip { position:absolute; bottom:95%; right:0; white-space:nowrap; padding:5px 9px; background:#fffaf1; color:#8b735e; border-radius:12px; font-size:10px; opacity:0; pointer-events:none; transition:opacity .2s; }
 .goose-companion:hover .goose-tooltip,.goose-companion:focus-visible .goose-tooltip { opacity:1; }
 .goose-companion.is-dragging .goose-tooltip { opacity:0; }
 body:has(input:focus) .goose-companion,body:has(dialog[open]) .goose-companion,body:has(.site-header.nav-open) .goose-companion { visibility:hidden; }
@@ -14,6 +34,14 @@ body:has(input:focus) .goose-companion,body:has(dialog[open]) .goose-companion,b
 .search-suggestions { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin-top:18px; }
 .search-suggestions button,.search-all { background:#faf2e7; color:#80654f; border:1px solid #eee0cf; border-radius:22px; padding:10px 14px; min-height:40px; font-size:11px; }
 .search-all { margin-top:16px; background:#f3e4d2; }
-@keyframes goose-drift { 0%,100% { transform:translate(1px,-3px) rotate(-2deg); } 50% { transform:translate(-7px,5px) rotate(3deg); } }
-@media(max-width:700px) { .goose-companion { width:57px; height:72px; } .goose-tooltip { display:none; } }
-@media(prefers-reduced-motion:reduce) { .goose-drift { animation:none; } .goose-tooltip { transition:none; } }
+
+@keyframes goose-step { 0%,100% { transform:rotate(-14deg); } 50% { transform:rotate(14deg) translateY(-2px); } }
+@keyframes goose-waddle { 0%,50%,100% { transform:translateY(0) rotate(0); } 25% { transform:translateY(-1.5px) rotate(-1.2deg); } 75% { transform:translateY(-1.5px) rotate(1.2deg); } }
+@keyframes goose-breathe { 0%,100% { transform:rotate(0); } 50% { transform:rotate(-2deg); } }
+@keyframes goose-blink { 0%,43%,46%,100% { transform:scaleY(1); } 44%,45% { transform:scaleY(.12); } }
+@keyframes goose-struggle { 0%,100% { transform:translateY(-9px) rotate(-7deg); } 50% { transform:translateY(-12px) rotate(7deg); } }
+@keyframes goose-flap { from { transform:rotate(-48deg) scale(1.07); } to { transform:rotate(28deg) scale(1.03); } }
+@keyframes goose-kick { from { transform:rotate(-33deg); } to { transform:rotate(36deg) translateY(3px); } }
+@keyframes goose-land { 0% { transform:translateY(-8px); } 45% { transform:translateY(2px) scaleY(.93); } 75% { transform:translateY(-2px); } 100% { transform:translateY(0) scaleY(1); } }
+@media(max-width:700px) { .goose-companion { width:64px; height:78px; } .goose-tooltip { display:none; } }
+@media(prefers-reduced-motion:reduce) { .goose-companion * { animation:none!important; transition:none!important; } }

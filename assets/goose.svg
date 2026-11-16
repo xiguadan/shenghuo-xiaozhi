@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 145" fill="none"><ellipse cx="57" cy="137" rx="30" ry="3" fill="#c4b39a" opacity=".13"/><g stroke="#a89b87" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M47 116v12l-11 3h22m10-15v12l-9 4h21" fill="#ddba8e" stroke="#c3a27c"/><path d="M17 93q16-20 33-14q10 5 9-7l-4-27C50 28 58 14 72 16C89 17 94 32 82 45C72 53 76 70 83 83C101 96 93 111 75 118C51 126 24 117 17 105L8 96q2-7 9-3Z" fill="#fffdf8"/><path d="M34 94q16-12 33 4q-6 15-24 9" stroke="#cfbfa8"/><path d="m87 31 19 8-22 6" fill="#d5aa7b" stroke="#ba936b"/><path d="M62 50q5 4 11 0" stroke="#e1d5c3"/><path d="m16 93 10 9" stroke="#e4d9c8"/></g><circle cx="79" cy="29" r="2.2" fill="#675c4b"/><circle cx="79.6" cy="28.3" r=".65" fill="#fffdf8"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+ <g id="leg-back"><path d="m79 153 1 20-13 6q-4 3 3 3h24q5-1 0-5l-6-5 3-18Z" fill="#dfa574"/></g>
+ <g id="leg-front"><path d="m110 154 2 21-12 7q-3 3 4 3h25q4-2-2-5l-7-5 3-21Z" fill="#e4a06a"/></g>
+ <g id="wing-back"><path d="M109 128q29-22 51-9q2 15-27 33Z" fill="#faf9f1" stroke="#e8e5d8" stroke-width="1.5"/></g>
+ <g id="body"><path d="M28 117q19-11 37-5q23 12 27-3c6-15-6-39 3-64c5-18 22-26 38-18c16 9 14 23-1 34c-12 9-8 28 2 49c23 16 22 36 1 49c-25 17-62 16-87 3q-19-11-22-28l-7-13q-2-8 9-4Z" fill="#fffefa" stroke="#e7e2d6" stroke-width="1.7" stroke-linejoin="round"/><path d="M31 131q7 22 27 27" fill="none" stroke="#f1eee4" stroke-width="3" stroke-linecap="round"/><path d="m142 39 23 9q7 4-1 8l-24 3q-6-9 2-20Z" fill="#e4a06a"/><path d="m147 49 12 1" fill="none" stroke="#c88857" stroke-width="1.5" stroke-linecap="round"/><path d="M100 76q6 7 17 4" fill="none" stroke="#f0ebdf" stroke-width="2" stroke-linecap="round"/></g>
+ <g id="wing-front"><path d="M52 133q23-15 51 4q8 7 19 3q-9 18-32 19q-25 1-38-8" fill="#fdfcf5" stroke="#eae6d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 149q20 9 38-1" fill="none" stroke="#f0eddf" stroke-width="3" stroke-linecap="round"/></g>
+ <g id="eyes"><ellipse cx="132" cy="38" rx="3.1" ry="3.8" fill="#514a40"/><circle cx="133" cy="36.7" r=".85" fill="#fffefa"/></g>
+</defs>
+<use href="#leg-back"/><use href="#leg-front"/><use href="#wing-back"/><use href="#body"/><use href="#wing-front"/><use href="#eyes"/>
+</svg>
