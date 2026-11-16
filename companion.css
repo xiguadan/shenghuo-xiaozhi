@@ -7,7 +7,7 @@
 .goose-tooltip { position:absolute; bottom:100%; right:0; white-space:nowrap; padding:5px 9px; background:#fffaf1; color:#8b735e; border-radius:12px; font-size:10px; opacity:0; pointer-events:none; transition:opacity .2s; }
 .goose-companion:hover .goose-tooltip,.goose-companion:focus-visible .goose-tooltip { opacity:1; }
 .goose-companion.is-dragging .goose-tooltip { opacity:0; }
-body:has(dialog[open]) .goose-companion,body:has(.site-header.nav-open) .goose-companion { visibility:hidden; }
+body:has(input:focus) .goose-companion,body:has(dialog[open]) .goose-companion,body:has(.site-header.nav-open) .goose-companion { visibility:hidden; }
 .empty-search-mark { display:block; font-size:35px; color:#b39a7f; }
 .empty h3 { color:#705d4d; font:500 19px/1.8 'Noto Serif SC',serif; margin:8px 0; }
 .empty p { font-size:12px; line-height:1.8; color:#7b6d60; }
