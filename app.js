@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s),key='little-life-notes-v1';
-const assetUrl=p=>p+'?v=20261113-game';
+const assetUrl=p=>p+'?v=20261116-paper';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const migrate=c=>({'蔬果价格':'日常物价','蔬果处理':'食材处理'}[c]||c);
 let navMenuOpen=false,navFreezeUntil=0;

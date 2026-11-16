@@ -423,3 +423,70 @@ main>aside { background:#f8ecdf; border-top-color:#eee1d2; }
 .price-sheet.lavender { --sheet-tint:#f0e9ec; --sheet-accent:#77616a; }
 .price-sheet.sky { --sheet-tint:#f1ece9; --sheet-accent:#77655b; }
 @media(min-width:1051px) { header.site-header #nav { background:transparent; border:0; box-shadow:none; } }
+
+/* One clean paper canvas; colour is a small accent rather than a panel system. */
+:root { --paper:#fcfaf7; --surface:#fffdfa; --line:#f0ebe4; --illustration-paper:#faf7f1; }
+.theme-oat,.theme-clay,.theme-blue,.theme-butter,.theme-stone,.theme-rose {
+ --tint:#f8f2ea; --accent:#866b56;
+}
+header.site-header { background:#fcfaf7f5; border-bottom-color:#f0ebe4; }
+header.site-header #nav,header.site-header #nav .nav-section-panel { background:#fffdfa; border-color:#f3eee7; }
+header.site-header #nav summary,header.site-header #nav .nav-arcade summary,
+header.site-header #nav>.nav-home,header.site-header #nav>.nav-home.active { background:#faf5ee; border-color:transparent; color:#715c4c; }
+header.site-header #nav .nav-section[open] summary { background:#f6ecdf; color:#715c4c; }
+header.site-header #nav .nav-section-panel,header.site-header #nav .nav-arcade .nav-section-panel { background:#fdfaf5; }
+header.site-header #nav .nav-section-panel button { background:#fffdfa; color:#715c4c; }
+header.site-header #nav .nav-section-panel button.active { background:#f5e8d9; color:#6b4f3b; }
+header.site-header #nav summary.chosen { box-shadow:inset 0 -2px #e5d2bf; }
+.nav-toggle { background:#faf5ee; }
+.nav-scrim:not([hidden]) { background:#69534710; }
+#collection,#detail,#game { background-color:#fffdfa; }
+.hero { background-color:#fcfaf7; }
+.topic { background:#faf6ef; border-color:transparent; }
+.topic-number,.topic-arrow { color:#9b7d63; }
+.card { background:#fffdfa; border-color:#f2ede6; box-shadow:none; }
+.card-image,.home-editorial .card .card-image,.step-figure,.side-illustration { background:#faf7f1; }
+.card:hover { border-color:#e7d9c9; box-shadow:0 8px 24px #84644908; }
+.tag,.reading-label span,.tip,.detail-side { background:#faf4eb; }
+.tip { border-left-color:#deccb6; }
+.detail-side { border:0; }
+.artboard-paper { background:#f9f3e8; border-color:#eee1ce; box-shadow:7px 10px 0 -5px #f0e6d5,10px 14px 24px #84644906; }
+.paper-ticket { background:#f6eee7; border-color:#e9dace; }
+.hero-artboard:before,.hero-artboard:after { background:#f3e9da; }
+.garden-center { background:#fffdfa; border-color:#f0e8dc; border-top-color:#e5d3bf; }
+.topic-intro,main>aside { background:#fbf6ed; border-color:#f0e5d6; }
+.margin-note { background:#fbf7ee; border-color:#eadbc5; box-shadow:none; }
+.play-entries .game-teaser,.play-entries .market-teaser,.play-entries .detective-teaser,.play-entries .pack-teaser {
+ background:#faf6ef; border-color:transparent; box-shadow:none;
+}
+.play-entries .game-teaser h2,.play-entries .game-teaser .teaser-arrow { color:#725c4b; }
+.play-entries .game-teaser p,.play-entries .game-teaser h2 i,.play-entries .game-teaser .eyebrow { color:#7a6b5f; }
+.game-worktable .game-case,.game-worktable .game-sequence,.detective-board,.detective-quiz { background:#fffdfa; border-color:#f0e8dd; box-shadow:0 4px 14px #84644905; }
+.game-worktable .ticket-0,.game-worktable .ticket-1,.game-worktable .ticket-2 { background:#fbf6ee; }
+.game-worktable .sort-card { border-color:#ece1d2; box-shadow:0 3px 0 -2px #ece0ce; }
+.game-worktable .sort-card.picked { background:#f4e9de; border-color:#bc9c80; box-shadow:2px 3px 0 #e8d7c2; }
+.game-worktable .selection-help,.market-judge,.clue-lab,.detective-sidebar,.detective-notice,.detective-scene-story,#clueLabelKey { background:#fbf7ef; border-color:#efe5d7; }
+.game-postmark,.packing-ticket,.book-stamp,.book-preview .book-stamp { background:#faf2e6; border-color:#ead7bc; outline-color:#ead7bc88; box-shadow:none; }
+.price-sheet.sage,.price-sheet.peach,.price-sheet.rose,.price-sheet.butter,.price-sheet.lavender,.price-sheet.sky { --sheet-tint:#faf4e9; --sheet-accent:#866b56; }
+.price-sheet { background:#fffdfa; border-color:#f2e9dc; }
+.price-sheet .sheet-note { background:#fbf6ec; }
+.market-product,.market-product:nth-child(2),.market-receipt,.pack-supply { background:#fffdfa; border-color:#eee3d4; }
+.market-product.on-tray,.pack-supply.selected { background:#f8eee2; border-color:#c6a787; }
+.pack-feedback,.pack-feedback.retry,.detective-grade .detective-reason,.detective-run-result { background:#fbf5ea; }
+/* Primary and selected actions stay identifiable with dark ink on a light tint. */
+.all-guides,.book-all,.game-primary,.game-worktable .game-primary,#gameResult .game-primary,
+.market-next,.clue-continue,.pack-case-tools .pack-case-close {
+ background:#f0dfca; border-color:#e1cbb1; color:#6b4e37;
+}
+.all-guides:hover,.book-all:hover,.game-primary:hover,.game-worktable .game-primary:hover,#gameResult .game-primary:hover,
+.market-next:hover,.clue-continue:hover:not(:disabled),.pack-case-tools .pack-case-close:hover:not(:disabled) {
+ background:#e9d4ba; border-color:#ccb08c; color:#62462e;
+}
+.filters button.active,.book-category-tabs button.selected,.clue-targets button[aria-pressed=true],
+.detective-flow span[aria-current],.detective-evidence-strip button.current,.pack-trip-tabs button[aria-pressed=true] {
+ background:#f6eadb; border-color:#e1cdb3; color:#6b4e37; font-weight:600;
+}
+.detective-evidence-strip button.found,.detective-options button[aria-pressed="true"] { background:#f6ecdf; border-color:#ccb08c; }
+@media(max-width:650px) {
+ .packing-table>.pack-notes,.packing-table>.packing-inventory { background:#fcf7ef; border-color:#f0e6d7; box-shadow:none; }
+}

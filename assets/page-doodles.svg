@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1500" fill="none" stroke="#d2b79b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+ <g opacity=".48" transform="translate(16 190) rotate(-12 28 35)"><path d="M26 15C0 16 0 64 26 66C51 64 52 16 26 15Z M26 15q-7-12 6-15 M52 42h17m-5-5 5 5-5 5"/><path d="M18 28v25m12-29v33M8 38h32M8 47h32" opacity=".6"/></g>
+ <path d="M38 283q-24 62 1 102t-8 94" opacity=".34" stroke-dasharray="2 7"/><path d="m23 469 8 12 12-8" opacity=".4"/>
+ <g opacity=".45" transform="translate(1320 65) rotate(12 26 28)"><path d="M22 14q-4-14 7-14q14 3 4 17L4 40q-8 7 3 7h53q12 0 2-7L33 18"/><path d="M10 55q24 4 47-1" opacity=".5"/></g>
+ <g opacity=".42" transform="translate(15 790) rotate(13 30 30)"><rect x="6" y="4" width="49" height="24" rx="6"/><path d="M12 29v12m8-12v14m8-14v13m8-13v14m8-14v12m8-12v9 M16 11h28"/></g>
+ <path d="M1346 880q26 30 5 67t1 83" opacity=".34" stroke-dasharray="2 7"/><path d="m1344 1024 9 9 8-11" opacity=".4"/>
+ <g opacity=".43" transform="translate(1323 1160) rotate(-8 25 26)"><path d="M1 20 15 5h28l14 15-10 9-6-7v36H17V22l-6 7Z M20 8q9 14 18 0"/><path d="M23 40h12m-12 6h12" opacity=".5"/></g>
+ <g opacity=".4" transform="translate(27 1340)"><path d="M15 0v25M3 12h24M6 3l18 18M6 21 24 3"/></g>
+</svg>

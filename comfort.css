@@ -123,3 +123,11 @@ body:has(.site-header.header-away) .detail-toolbar { top:0; }
  .game-worktable .game-case { padding:10px 14px; }
  .game-board.game-worktable { gap:10px; }
 }
+/* Sparse drawings stay in the outer page margin and never catch input. */
+@media(min-width:1100px) {
+ .hero,#collection,#detail,#game { background-image:url('assets/page-doodles.svg?v=20261116'); background-size:100% auto; background-position:center top; background-repeat:repeat-y; }
+}
+@media(max-width:1099px) {
+ .section-top { position:relative; }
+ .section-top:after { content:''; position:absolute; top:-27px; right:4px; width:86px; height:24px; background:url('assets/pencil-trail.svg?v=20261116') center/contain no-repeat; opacity:.65; pointer-events:none; }
+}
