@@ -1,0 +1,19 @@
+.goose-companion { position:fixed; z-index:7; width:78px; height:96px; border:0; padding:0; border-radius:35%; background:transparent; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+.goose-drift { display:block; width:100%; height:100%; pointer-events:none; animation:goose-drift 9s ease-in-out infinite; transform-origin:50% 70%; }
+.goose-drift img { display:block; width:100%; height:100%; object-fit:contain; pointer-events:none; }
+.goose-companion.is-dragging { cursor:grabbing; z-index:80; }
+.goose-companion.is-dragging .goose-drift { animation-play-state:paused; filter:drop-shadow(0 5px 4px #9c80661a); }
+.goose-companion:focus-visible { outline:2px dashed #b69a7a; outline-offset:3px; }
+.goose-tooltip { position:absolute; bottom:100%; right:0; white-space:nowrap; padding:5px 9px; background:#fffaf1; color:#8b735e; border-radius:12px; font-size:10px; opacity:0; pointer-events:none; transition:opacity .2s; }
+.goose-companion:hover .goose-tooltip,.goose-companion:focus-visible .goose-tooltip { opacity:1; }
+.goose-companion.is-dragging .goose-tooltip { opacity:0; }
+body:has(dialog[open]) .goose-companion,body:has(.site-header.nav-open) .goose-companion { visibility:hidden; }
+.empty-search-mark { display:block; font-size:35px; color:#b39a7f; }
+.empty h3 { color:#705d4d; font:500 19px/1.8 'Noto Serif SC',serif; margin:8px 0; }
+.empty p { font-size:12px; line-height:1.8; color:#7b6d60; }
+.search-suggestions { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin-top:18px; }
+.search-suggestions button,.search-all { background:#faf2e7; color:#80654f; border:1px solid #eee0cf; border-radius:22px; padding:10px 14px; min-height:40px; font-size:11px; }
+.search-all { margin-top:16px; background:#f3e4d2; }
+@keyframes goose-drift { 0%,100% { transform:translate(1px,-3px) rotate(-2deg); } 50% { transform:translate(-7px,5px) rotate(3deg); } }
+@media(max-width:700px) { .goose-companion { width:57px; height:72px; } .goose-tooltip { display:none; } }
+@media(prefers-reduced-motion:reduce) { .goose-drift { animation:none; } .goose-tooltip { transition:none; } }
