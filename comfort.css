@@ -2,16 +2,16 @@
 h1,h2,h3 { text-wrap:balance; overflow-wrap:break-word; }
 .hero h1 em { white-space:normal; }
 .detail-main h1 { font-size:clamp(27px,3.2vw,38px); line-height:1.65; }
-.detail-toolbar { position:sticky; top:var(--site-header-height,88px); z-index:8; display:flex; align-items:center; gap:16px; padding:10px 0; background:#fcfaf5f5; backdrop-filter:blur(12px); border-bottom:1px solid #e6e0d3; transition:top .25s; }
+.detail-toolbar { position:sticky; top:var(--site-header-height,88px); z-index:8; display:flex; align-items:center; gap:16px; padding:10px 0; background:#fffcf7f5; backdrop-filter:blur(12px); border-bottom:1px solid #e6e0d3; transition:top .25s; }
 body:has(.site-header.header-away) .detail-toolbar { top:0; }
-.detail-toolbar .back { display:inline-flex; align-items:center; gap:10px; flex-shrink:0; border:1px solid #dce3d5; border-radius:24px; background:#eaf0e4; color:#315f60; padding:7px 14px 7px 7px; min-height:42px; font-size:12px; }
+.detail-toolbar .back { display:inline-flex; align-items:center; gap:10px; flex-shrink:0; border:1px solid #eee4d8; border-radius:24px; background:#f5eadd; color:#735442; padding:7px 14px 7px 7px; min-height:42px; font-size:12px; }
 .back-mark { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#fffaf1; font-size:19px; }
 .toolbar-title { min-width:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:#62685f; font-size:11px; }
-.toolbar-home { margin-left:auto; flex-shrink:0; color:#315f60; font-size:11px; text-decoration:none; padding:12px 0 12px 10px; }
+.toolbar-home { margin-left:auto; flex-shrink:0; color:#735442; font-size:11px; text-decoration:none; padding:12px 0 12px 10px; }
 .detail-wrap { padding-top:16px; }
 .detail-layout { margin-top:26px; }
 .step { scroll-margin-top:calc(var(--site-header-height,88px) + 90px); }
-.price-home { display:inline-flex; align-items:center; gap:9px; border-radius:22px; background:#edf0e5; color:#315f60; padding:8px 14px 8px 8px; font-size:12px; text-decoration:none; min-height:40px; }
+.price-home { display:inline-flex; align-items:center; gap:9px; border-radius:22px; background:#f5eadd; color:#735442; padding:8px 14px 8px 8px; font-size:12px; text-decoration:none; min-height:40px; }
 .price-home>span { background:#fffaf1; border-radius:50%; width:26px; height:26px; display:grid; place-items:center; font-size:17px; }
 .price-notebook:not(.book-preview) .notebook-heading { padding:18px 0 22px; gap:18px; }
 .price-notebook:not(.book-preview) .notebook-heading h2 { font-size:clamp(25px,3vw,36px); margin:10px 0; }
@@ -103,4 +103,23 @@ body:has(.site-header.header-away) .detail-toolbar { top:0; }
  .pack-notes li { padding:9px 0 0; }
  .pack-notes li:before { position:static; display:inline; font-size:14px; margin-right:5px; }
  .pack-notes li>span { font-size:9px; }
+}
+
+/* Full game mastheads, matching the supermarket lab without a tall introduction. */
+.little-game-heading { padding-bottom:0; border-bottom:0; }
+.little-game-heading h1 { font:500 42px/1.4 'Noto Serif SC',serif; letter-spacing:3px; margin:10px 0 8px; }
+.little-game-heading h1 em,.little-game-heading h1>span { font-style:normal; color:var(--clay); }
+.little-game-heading h1>i { display:inline-block; margin-left:16px; font:32px Georgia; color:#b49b85; vertical-align:middle; }
+.little-game-heading p { display:block; margin:0; font-size:12px; line-height:1.9; }
+@media(max-width:700px) {
+ .game-intro.little-game-heading { margin-bottom:12px; padding-bottom:0; }
+ .little-game-heading .eyebrow,.game-intro.little-game-heading .eyebrow { display:block; font-size:7px; letter-spacing:1.4px; }
+ .little-game-heading h1,.game-intro.little-game-heading h1 { font-size:32px; line-height:1.35; margin:6px 0; letter-spacing:1px; }
+ .game-intro.little-game-heading h1 em,.game-intro.little-game-heading h1>span { display:inline; }
+ .little-game-heading h1>i { font-size:24px; margin-left:10px; }
+ .little-game-heading p,.game-intro.little-game-heading p { display:block; font-size:10px; line-height:1.65; }
+ .packing-heading.little-game-heading h1 { font-size:clamp(26px,7.6vw,32px); white-space:nowrap; }
+ .packing-heading.little-game-heading .eyebrow { font-size:6px; letter-spacing:1px; }
+ .game-worktable .game-case { padding:10px 14px; }
+ .game-board.game-worktable { gap:10px; }
 }
