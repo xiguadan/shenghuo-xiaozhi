@@ -345,6 +345,6 @@ footer .brand { font-family:var(--hand); font-size:25px; font-weight:400; }
 .detail-toolbar { background:#fdfdfbf5; }
 @media(max-width:700px) {
  .detail-title-main { display:block; }
- .detail-title-colon { display:inline-block; width:0; height:0; overflow:hidden; }
+ .detail-title-colon { display:none; }
  .detail-title-rest { display:block; margin-top:5px; font-size:.81em; line-height:1.7; letter-spacing:.3px; }
 }
