@@ -1,0 +1,92 @@
+/* A small reading-size lift on phones; keep the compact cards and game boards. */
+@media (max-width:700px) {
+  body { font-size:15px; }
+  .nav-toggle { font-size:12px; }
+  header.site-header #nav summary,
+  header.site-header #nav>.nav-home { font-size:14px; }
+  header.site-header #nav .nav-section-panel .nav-label { font-size:13px; }
+  header.site-header #nav .nav-section-title { font-size:11px; }
+
+  .hero p { font-size:14px; line-height:2; }
+  .hero-link { font-size:14px; }
+  .hero-tip strong { font-size:18px; }
+  .hero-tip>span:first-child,.hero-read,.hero-controls { font-size:11px; }
+  .topic strong { font-size:20px; }
+  .topic small { font-size:12px; }
+  .section-top p,.topic-intro p { font-size:13px; }
+  .search input { font-size:16px; }
+  .empty p { font-size:14px; }
+  .search-suggestions button,.search-all { font-size:13px; }
+  .filters button { font-size:12px; min-height:34px; }
+  .meta { font-size:10px; letter-spacing:.4px; }
+  .grid .card h3,
+  .grid.home-editorial .card:first-child h3,
+  .grid.home-editorial .card:last-child h3 { font-size:18px; }
+  .grid .card p { font-size:12px; line-height:1.7; }
+  .grid .card .tag,.grid .card .card-foot { font-size:10px; }
+  .play-entries-head p,.play-entries .game-teaser h2 i { font-size:12px; }
+  .play-entries .game-teaser p { font-size:11px; }
+  .margin-note strong { font-size:17px; }
+  .margin-note p { font-size:12px; }
+  .margin-note a { font-size:11px; }
+  main>aside p { font-size:14px; }
+  footer { font-size:11px; }
+
+  .detail-lead,.step>p { font-size:15px; line-height:1.95; }
+  .step-label h2 { font-size:18px; }
+  .text-step .step-label h2 { font-size:17px; }
+  .tip b,.tip p { font-size:14px; }
+  .step-figure figcaption,.steps-title,.detail-kicker { font-size:11px; }
+  .step-index a,.side-related a { font-size:12px; }
+  .source-link,.table-guide { font-size:11px; }
+  .detail-toolbar .back,.toolbar-home,.price-home { font-size:13px; }
+
+  .sheet-heading p { font-size:12px; }
+  .price-notebook:not(.book-preview) .item-name { font-size:13px; }
+  .price-notebook:not(.book-preview) .item-name small { font-size:10px; }
+  .price-notebook:not(.book-preview) .item-amount { font-size:19px; }
+  .price-notebook:not(.book-preview) .sheet-note p { font-size:11px; }
+  .price-notebook:not(.book-preview) .sheet-source { font-size:10px; }
+
+  .little-game-heading p,.game-intro.little-game-heading p,
+  .market-heading p,.detective-heading p { font-size:12px; }
+  .game-worktable .game-case>p { font-size:13px; line-height:1.7; }
+  .game-worktable .game-instructions { font-size:11px; }
+  .game-worktable .sort-content { font-size:13px; line-height:1.65; }
+  .game-worktable .sequence-head { font-size:9px; letter-spacing:.5px; }
+  .game-worktable .selection-help { font-size:11px; }
+  .game-worktable .game-primary,.game-worktable .game-secondary { font-size:13px; }
+  .game-worktable .game-actions { margin-top:14px; }
+  .game-worktable .game-skip,.game-note p { font-size:11px; }
+  #resultBody p { font-size:14px; }
+  .answer-steps { font-size:13px; }
+  .result-guide { font-size:12px; }
+
+  .market-case p,.market-judge #marketDecision>p { font-size:12px; }
+  .product-info strong { font-size:14px; }
+  .product-spec { font-size:11px; }
+  .product-deal,.product-price small { font-size:10px; }
+  .market-choices button { font-size:14px; }
+  .market-verdict,.market-read,.market-next { font-size:12px; }
+  .market-equations p,.market-footnote,.market-placement p { font-size:11px; }
+
+  .detective-scene-story p,.detective-hint,.clue-lab-head p,
+  .clue-observation p { font-size:13px; }
+  .detective-options strong { font-size:13px; }
+  .detective-options small { font-size:11px; }
+  .detective-steps li,.detective-notice,.detective-links { font-size:13px; }
+  .detective-grade p,.detective-run-result,.clue-continue { font-size:12px; }
+  .detective-search-tools,.detective-search-tools button,
+  .detective-evidence-strip button,.clue-example-note,#clueLabelKey { font-size:11px; }
+
+  .pack-trip-tabs button { font-size:11px; }
+  .pack-supply-copy strong { font-size:11px; }
+  .pack-supply-copy small { font-size:9px; }
+  .pack-case-tools button { font-size:10px; }
+  .pack-case-status,.pack-mobile-status,
+  .packing-inventory>div:first-child>.pack-mobile-tray-label { font-size:10px; }
+  .pack-notes li b,.pack-notes>.pack-check { font-size:13px; }
+  .pack-notes li>span,.pack-feedback p,.pack-feedback li button,
+  .pack-feedback>div button { font-size:12px; }
+  .packing-footnote { font-size:10px; }
+}

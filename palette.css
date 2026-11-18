@@ -1,492 +1,218 @@
-/* Warm paper, mineral teal and terracotta. Keep layout and illustration canvases intact. */
+/* Summer pool: clear blue water, paper-white deck, graphite type. */
 :root {
-  --paper: #f9f5ef;
-  --surface: #fffcf8;
-  --ink: #514a43;
-  --muted: #74675d;
-  --line: #eee5dc;
-  --teal: #7c6559;
-  --teal-deep: #5c4b40;
-  --teal-tint: #f3e8dd;
-  --clay: #94634e;
-  --clay-tint: #f5e7df;
-  --blue: #77656b;
-  --rose: #876469;
-  --oat: #796349;
-  --sage: #756b53;
-  --plum: #7e686f;
-  --illustration-paper: #f1ede4;
+ --paper:#fdfdfb; --surface:#ffffff; --ink:#343e43; --muted:#627782;
+ --line:#e4eef2; --teal:#39779a; --teal-deep:#295b79; --teal-tint:#edf6fa;
+ --clay:#39779a; --clay-tint:#edf6fa; --blue:#39779a; --rose:#66808e;
+ --oat:#66808e; --sage:#66808e; --plum:#39779a; --illustration-paper:#f4f9fb;
+ --pool:#add8ec; --pool-light:#f0f8fc; --pool-edge:#dcecf4;
 }
-.theme-oat { --tint: #f0e8d5; --accent: #725c30; }
-.theme-clay { --tint: #f1e4d6; --accent: #8b4632; }
-.theme-blue { --tint: #e8ebe6; --accent: #3b646f; }
-.theme-butter { --tint: #f0e9d3; --accent: #6e5a26; }
-.theme-stone { --tint: #e8eade; --accent: #48604c; }
-.theme-rose { --tint: #f0e5e3; --accent: #7d5268; }
-::selection { color: var(--teal-deep); background: #e6c3ac; }
-button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
-  outline-color: var(--teal);
-}
-
-/* Pale paper folders, with clear ink and quiet edges. */
-header.site-header { background: #f6f1e7f5; border-bottom-color: #d5d9ce; }
-.brand { color: var(--teal-deep); }
-.brand b { color: var(--clay); }
-.brand small, .eyebrow { color: var(--muted); }
-header.site-header #nav > .nav-home { color: var(--teal); }
-header.site-header #nav > .nav-home.active { background: var(--clay-tint); color: #703d2f; }
-header.site-header #nav summary {
-  color: var(--teal); background: #e8ede3; border-color: #dce2d5;
-  box-shadow: none;
-}
-header.site-header #nav summary small, header.site-header #nav summary > span { color: #6f6053; }
-header.site-header #nav .nav-arcade summary {
-  background: #eee6ec; border-color: #e1d6df; color: #614866;
-}
-header.site-header #nav .nav-arcade summary small,
-header.site-header #nav .nav-arcade summary > span { color: #6a506e; }
-header.site-header #nav summary.chosen { box-shadow: inset 0 -2px #c6aa96; }
-header.site-header #nav .nav-section[open] summary {
-  background: #dfe8d9; color: var(--teal-deep); border-color: #c9d7c1;
-}
-header.site-header #nav .nav-section[open] summary small,
-header.site-header #nav .nav-section[open] summary > span { color: #6f6053; }
-header.site-header #nav .nav-section-panel { background: var(--surface); border-color: #d1d4c8; }
-header.site-header #nav .nav-section-title { color: var(--muted); border-color: var(--line); }
-header.site-header #nav .nav-section-panel button {
-  color: #5c4b40; background: #e9e9dc; border-color: #e0e1d3;
-}
-header.site-header #nav .nav-section-panel button:hover { background: #dce7da; border-color: #8fa68d; }
-header.site-header #nav .nav-section-panel button.active {
-  background: var(--teal); border-color: var(--teal); color: var(--surface);
-}
-header.site-header #nav .nav-index { color: #6f6053; }
-header.site-header #nav .active .nav-index { color: #e0e9df; }
-.nav-toggle { color: var(--teal-deep); background: var(--teal-tint); border-color: #a6b9a9; }
-.toggle-mark i { background: var(--teal); }
-.nav-scrim:not([hidden]) { background: #263d353d; }
-
-/* A coloured cover and a real ink hierarchy, with the existing hand-drawn motion. */
-.hero h1 { color: var(--teal-deep); }
-.hero h1 em { color: var(--clay); }
-.hero h1 em:after { border-top-color: #b87153; border-bottom-color: #d2a187; }
-.hero p { color: #6f6053; }
-.hero-link { color: var(--clay); border-bottom-color: #b97557; }
-.hero-link:hover { color: #793b2a; }
-.artboard-paper { background: #e7e9de; border-color: #c6cebf; box-shadow: 9px 12px 0 -5px #e2dacc, 14px 16px 25px #334d3909; }
-.artboard-paper > span, .artboard-paper > small { color: #6f6053; }
-.artboard-rule { border-color: #c4ceba; }
-.artboard-paper i { color: #6f6053; }
-.sketch-arrow { color: var(--clay); }
-.paper-ticket { background: #e9e2e8; border-color: #d5c8d2; color: #6d596d; box-shadow: 3px 4px 0 #735d7908; }
-.pencil-star { color: #896985; }
-.hero-artboard:before { background: #d8b598; }
-.hero-artboard:after { background: #b3c4af; }
-.floating-spark { color: #b46749; }
-.spark-two { color: #6f6053; }
-.spark-three { color: #896985; }
-.garden-center { background: var(--surface); border-color: #ded5c3; border-top: 2px solid #d3bba6; }
-.garden-kicker, .hero-controls { color: #6f6053; }
-.hero-tip strong { color: var(--teal-deep); }
-.hero-tip > span:first-child, .hero-read, .hero-controls button { color: var(--clay); }
-.hero-controls { border-color: #cbbda5; }
-
-/* Chapter colours live in tags and category cards; every illustration uses the same paper. */
-#collection, #detail { background: #fcf8ef; }
-.section-top h2, .guide-heading h2, .topic-intro h2 { color: var(--teal-deep); }
-.section-top h2 i, .guide-heading i { color: var(--clay); }
-.section-top p, .guide-heading > span, .meta, .topic small, .topic-intro p,
-.topic-intro span, .filters button, .empty { color: var(--muted); }
-.topic { border-color: color-mix(in srgb, var(--accent) 14%, transparent); box-shadow: none; }
-.topic strong { color: var(--ink); }
-.topic-number, .topic-arrow { color: var(--accent); }
-.topic:after { opacity: .55; }
-.topic-drawing { opacity: 1; }
-.topic-intro { background: #edece0; border-left: 2px solid #c8d2bf; }
-.search { color: var(--teal); border-color: #91a59a; }
-.search input { color: var(--ink); }
-.search input::placeholder { color: #6f6053; opacity: 1; }
-.filters button { border-color: #bfc8b8; }
-.filters button.active { background: var(--teal); border-color: var(--teal); color: var(--surface); }
-.filters button:hover:not(.active) { background: #e6ecdf; }
-.meta, .guide-heading { border-color: var(--line); }
-.card { background: var(--surface); border-color: #e5ddce; box-shadow: 0 3px 0 #d8cbb51c; }
-.card:hover { border-color: #c2cbbf; box-shadow: 0 12px 25px #315f6014; }
-.card h3 { color: var(--teal-deep); }
-.card p { color: #6f6053; }
-.card-category, .card-number, .card-foot { color: #6f6053; }
-.card-foot { border-color: #cfc5b4; }
-.card-arrow, .tag { color: var(--accent); }
-.all-guides { background: var(--teal); color: var(--surface); border-color: var(--teal); }
-.all-guides:hover { background: var(--teal-deep); }
-main > aside { background: #f0e3d5; border-top-color: #e0d2bf; }
-main > aside h2 { color: var(--teal-deep); }
-main > aside h2 i, .closing-link { color: #82422f; }
-main > aside span, main > aside p { color: #665345; }
-.closing-link { border-color: #a66a4e; }
-footer { color: #6f6053; }
-.back, .article-sources a { color: var(--teal); }
-.detail-main h1, .step-label h2 { color: var(--teal-deep); }
-.detail-lead, .step > p { color: #6f6053; }
-.diagram-note, .step-figure figcaption, .article-sources, .steps-title span { color: #6f6053; }
-.tip p { color: #6f6053; }
-.step-figure, .step, .steps-title, .article-sources { border-color: var(--line); }
-.detail-side > p { color: #5c4b40; }
-.step-index a, .side-related a { color: #6f6053; border-color: #b9c4b4; }
-.step-index a:hover, .side-related a:hover { color: var(--clay); }
-.inline-guide { text-decoration-thickness: 1px; }
-.margin-note { background: #f0e9d5; border-color: #d9cbae; box-shadow: 3px 4px 0 #c8af7d24; }
-.margin-note:before { background: #8da48699; }
-.margin-note strong { color: #5b4d2f; }
-.margin-note-icon, .margin-note small, .margin-note-plus, .margin-note a { color: #755b2b; }
-.margin-note p { color: #62573c; }
-.margin-note > div { border-color: #c5ad7a; }
-
-/* The market notebook retains its six paper colours with darker printed prices. */
-.price-notebook { --ink: #303e3a; }
-.book-eyebrow, .sheet-topline, .book-provenance, .book-provenance > span,
-.notebook-heading p, .sheet-heading p, .sheet-note p, .sheet-source,
-.book-closing > span, .book-closing p { color: #6f6053; }
-.notebook-heading h2, .book-preview .notebook-heading h2, .sheet-heading h3 { color: var(--teal-deep); }
-.notebook-heading h2 em { color: var(--clay); }
-.book-stamp, .book-preview .book-stamp { background: #ece2cd; border-color: #ccbea2; outline-color: #a38a5c88; }
-.book-stamp b { color: #72562e; }
-.book-stamp span { color: #6d5c3d; }
-.book-tabs { border-color: #bec8b5; }
-.book-tabs button, .book-tabs button span { color: #6f6053; }
-.book-tabs button.chosen, .book-tabs button.chosen span { color: var(--teal); }
-.book-tabs button.chosen:after { background: var(--clay); }
-.book-category-tabs button { color: #6f6053; border-color: #bac7b2; }
-.book-category-tabs button.selected { color: var(--surface); background: var(--teal); border-color: var(--teal); }
-.book-category-tabs button:hover:not(.selected) { background: #e4eadc; }
-.price-sheet { border-color: #dedcca; background: var(--surface); }
-.price-sheet.sage { --sheet-tint: #e8eade; --sheet-accent: #48604c; }
-.price-sheet.peach { --sheet-tint: #f1e4d6; --sheet-accent: #8b4632; }
-.price-sheet.rose { --sheet-tint: #f0e5e3; --sheet-accent: #7d5268; }
-.price-sheet.butter { --sheet-tint: #f0e9d3; --sheet-accent: #6e5a26; }
-.price-sheet.lavender { --sheet-tint: #ede6e7; --sheet-accent: #6d5573; }
-.price-sheet.sky { --sheet-tint: #e8ebe6; --sheet-accent: #3b646f; }
-.item-name { color: #6f6053; }
-.item-name small, .item-amount i, .sheet-source a { color: #6f6053; }
-.sheet-note p { color: #6f6053; }
-.sheet-source { border-color: #c9cdb9; }
-.sheet-source a, .book-closing a { color: var(--teal); }
-.book-all { background: var(--teal); border-color: var(--teal); color: var(--surface); }
-.book-all:hover { background: var(--teal-deep); }
-.price-panel, .price-table { background: var(--surface); }
-.price-toolbar, .price-context, .price-footnote, .price-panel-head p,
-.price-table td, .price-table small, .price-kind { color: #6f6053; }
-.price-table th { background: #dce5d5; color: #5c4b40; }
-.table-price, .source-link, .table-guide, .price-context a, .price-footnote a { color: var(--teal); }
-
-/* Four small laboratories: purple tickets, teal balance, blue evidence, sage suitcase. */
-.play-entries-head { border-color: var(--line); }
-.play-entries-head h2 { color: var(--teal-deep); }
-.play-entries-head > span, .play-entries-head p { color: var(--muted); }
-.play-entries .game-teaser { background: #ede4e4; border-color: #d6c6cf; box-shadow: none; }
-.play-entries .game-teaser h2, .play-entries .game-teaser .teaser-arrow { color: #65476e; }
-.play-entries .game-teaser p, .play-entries .game-teaser h2 i, .play-entries .game-teaser .eyebrow { color: #68516d; }
-.teaser-cards span { color: #6d5573; background: var(--surface); border-color: #bda7b9; }
-.play-entries .market-teaser { background: #e6eae1; border-color: #c8d1c4; }
-.play-entries .market-teaser h2, .play-entries .market-teaser .teaser-arrow { color: var(--teal-deep); }
-.play-entries .market-teaser p, .play-entries .market-teaser h2 i, .play-entries .market-teaser .eyebrow { color: #6f6053; }
-.play-entries .detective-teaser { background: #e8eae7; border-color: #ccd4d3; }
-.play-entries .detective-teaser h2, .play-entries .detective-teaser .teaser-arrow, .detective-teaser-icon { color: #6f6053; }
-.play-entries .detective-teaser p, .play-entries .detective-teaser h2 i, .play-entries .detective-teaser .eyebrow { color: #6f6053; }
-.play-entries .pack-teaser { background: #eaeada; border-color: #d3d7bc; }
-.play-entries .pack-teaser h2, .play-entries .pack-teaser .teaser-arrow { color: #5c4b40; }
-.play-entries .pack-teaser p, .play-entries .pack-teaser h2 i, .play-entries .pack-teaser .eyebrow { color: #6f6053; }
-.game-intro h1, .market-heading h1, .detective-heading h1, .packing-heading h1 { color: var(--teal-deep); }
-.game-intro h1 em, .game-intro h1 > span { color: var(--plum); }
-.market-heading h1 em, .packing-heading h1 > span { color: var(--teal); }
-.detective-heading h1 span { color: var(--clay); }
-.game-intro p, .market-heading p, .detective-heading p, .packing-heading p { color: var(--muted); }
-.game-postmark { background: #e8dde1; border-color: #d1beca; outline-color: #d1beca; }
-.game-postmark b, .game-postmark span { color: #694d70; }
-.game-worktable .game-case { background: #ede4e4; border-color: #dacad1; }
-.game-worktable .game-case h2 { color: #68466f; }
-.game-worktable .game-case > p, .game-worktable .game-instructions { color: #68516d; }
-.case-number { color: #6d5573; }
-.case-category { background: var(--surface); color: #765941; }
-.puzzle-case-art figcaption { color: #69556d; }
-.game-worktable .game-sequence { background: var(--surface); border-color: #e0d6c3; }
-.game-worktable .sequence-head, .game-worktable .selection-help, .game-secondary, .game-skip, .game-note { color: #656047; }
-.game-worktable .sort-card { border-color: #dad2c2; }
-.game-worktable .ticket-0 { background: #f0e8d9; }
-.game-worktable .ticket-1 { background: #eaecdf; }
-.game-worktable .ticket-2 { background: #eee6e6; }
-.game-worktable .sort-position { color: #705b45; }
-.sort-content { color: #5c4b40; }
-.sort-grip { color: #82735a; }
-.game-worktable .sort-card.picked { background: #d5bfd8; border-color: #87628e; box-shadow: 4px 6px 0 #baa1bd; }
-.game-worktable .sort-movers button { color: #615444; border-color: #bbae96; background: var(--surface); }
-.game-worktable .sort-movers button:hover:not(:disabled) { background: #ddc8ae; }
-.game-worktable .selection-help { background: #f0e9da; }
-.game-primary, .game-worktable .game-primary, #gameResult .game-primary { color: var(--surface); background: var(--plum); border-color: var(--plum); }
-.game-primary:hover, .game-worktable .game-primary:hover, #gameResult .game-primary:hover { background: #5d4565; border-color: #5d4565; }
-.game-secondary { border-color: #b9a58a; }
-.game-note > span { color: var(--plum); }
-#gameResult { background: var(--surface); color: var(--ink); border-color: #d0beca; }
-#gameResult h2, #resultBody strong, .result-stamp { color: var(--plum); }
-.result-stamp.success { color: var(--teal); }
-#resultBody p, .answer-steps { color: #6f6053; }
-.result-close, .result-guide { color: var(--clay); }
-#resultBody .result-explanation { background: #efebde; border-color: #d6d4c3; }
-
-/* The balance and its answers. */
-.market-back, .market-progress, .market-progress > span:last-child,
-.scale-corner, .scale-mode, .market-case p, .market-shelf-heading,
-.market-shelf-heading > span:last-child, .market-placement p,
-.market-footnote, .market-footnote > span, .market-round-note { color: #6f6053; }
-.market-progress i.current { background: var(--teal); }
-.market-progress i.done { background: #b87958; }
-.market-case > span { background: var(--clay-tint); color: #824630; }
-.market-drop { color: var(--teal); border-color: #8da78d; }
-.market-drop.occupied > span { color: #6e5339; }
-.market-product, .market-product:nth-child(2) { background: var(--surface); border-color: #ded5c2; }
-.market-product.on-tray { background: #dce7d8; border-color: #789779; }
-.product-letter, .product-grip, .product-location, .product-price small { color: #71644e; }
-.product-info strong { color: var(--ink); }
-.product-spec { color: #6f6053; }
-.product-deal, .product-price { color: var(--clay); }
-.market-placement button, .market-read, .market-footnote > a { color: var(--teal); }
-.market-judge { background: #eee9da; border-color: #dbd2ba; }
-.judge-stamp, .market-judge .eyebrow { color: #776237; }
-.market-judge h2, .market-finish h1 { color: var(--teal-deep); }
-.market-judge p, .market-no-spoiler, .market-equations p, .market-finish > p { color: #6f6053; }
-.market-judge .market-no-spoiler { color: #6f6053 !important; }
-.market-choices button { color: var(--teal-deep); border-color: #9fb29d; background: var(--surface); }
-.market-choices button span { color: #6f6053; }
-.market-choices button:hover:not(:disabled) { background: #d6e4d1; border-color: var(--teal); }
-.market-verdict { color: #8b4834; }
-.is-correct .market-verdict, .market-equations strong, .market-finish > p strong { color: var(--teal); }
-.market-equations > div > span, .market-equations strong small { color: #666348; }
-.market-next { background: var(--teal); border-color: var(--teal); color: var(--surface); }
-.market-next:hover { background: var(--teal-deep); }
-.market-receipt { background: var(--surface); border-color: #d6d5c3; }
-.market-receipt > span, .market-receipt > div, .market-receipt small, .market-receipt > p { color: #6f6053; }
-.market-price-entry { background: #eaece0; color: var(--teal-deep); border-color: #a9b99d; }
-.market-price-entry > span:first-child, .market-price-entry small { color: #6f6053; }
-
-/* Evidence stays unaltered: only the detective's surrounding desk changes colour. */
-.detective-board, .detective-quiz { background: var(--surface); border-color: #dcded2; }
-.detective-sidebar { background: #e8eae2; color: #5c4b40; }
-.case-eyebrow, .detective-top, .detective-evidence span { color: #6f6053; }
-.detective-seal { color: var(--clay); }
-.detective-paper h2, .detective-quiz > h2, .detective-treatment-title { color: var(--teal-deep); }
-.detective-options button { background: #f6f0e5; border-color: #cbbca5; }
-.detective-options button:hover { background: #e8dfce; border-color: #a99777; }
-.detective-options strong, .detective-steps li { color: #5c4b40; }
-.detective-options small, .detective-options button > b, .detective-actions,
-.detective-source, .detective-hint, .detective-score { color: #6f6053; }
-.detective-actions button, .detective-actions a, .detective-links a,
-.detective-source a { color: var(--teal); }
-.detective-options button[aria-pressed="true"] { background: #d7e3d1; border-color: #6f906e; }
-.detective-notice { background: #efe9da; color: #5c4b40; }
-.detective-notice b, .detective-score strong { color: var(--teal); }
-.clue-lab { background: #eeecdf; border-color: #d8d8c7; }
-.clue-lab-head h2, .clue-observation h3 { color: var(--teal-deep); }
-.clue-lab-head p, .clue-observation p, .clue-drag-hint,
-.clue-example-note, .clue-observation > span { color: #6f6053; }
-.clue-magnification { color: var(--teal); }
-.clue-targets button { background: var(--surface); color: #6f6053; border-color: #b6c1a4; }
-.clue-targets button[aria-pressed=true] { background: var(--teal); border-color: var(--teal); color: var(--surface); }
-.clue-continue { background: var(--teal); color: var(--surface); border-color: var(--teal); }
-.clue-continue:hover:not(:disabled) { background: var(--teal-deep); }
-#clueLabelKey { color: #6f6053; background: #e8eadb; }
-#clueLabelKey a { color: #70543b; }
-.detective-flow { color: #716851; }
-.detective-flow span[aria-current] { color: var(--surface); background: var(--teal); border-color: var(--teal); }
-.detective-scene-story { background: #f0e6d7; border-color: #dfd2bd; }
-.detective-scene-story > span, .detective-scene-story p { color: #68513b; }
-.detective-grade h3 { color: var(--teal); }
-.detective-grade.incorrect h3 { color: #934c36; }
-.detective-grade p, .detective-grade .detective-reason { color: #6f6053; }
-.detective-grade .detective-reason { background: #efecdf; }
-.detective-run-bar, .detective-run-bar small, .detective-search-tools { color: #6f6053; }
-.detective-run-bar b, .detective-run-result { color: var(--teal); }
-.detective-run-result { background: #eaecde; }
-.detective-evidence-strip button { background: #e8e0d1; color: #6b5d46; border-color: #c7b99d; }
-.detective-evidence-strip button.found { background: #dce6d3; color: #5c4b40; border-color: #97b084; }
-.detective-evidence-strip button.current { background: var(--teal); color: var(--surface); border-color: var(--teal); }
-.detective-search-tools button { color: var(--teal); }
-
-/* Keep the suitcase geometry, drag targets and item colours intact. */
-.packing-heading h1 > i { color: var(--clay); }
-.packing-ticket { background: #eee0ce; color: #715331; border-color: #d6c6ac; }
-.packing-ticket b { color: var(--teal); }
-.pack-trip-tabs button { background: #e5ddc8; color: #62583d; border-color: #c5b68f; }
-.pack-trip-tabs button[aria-pressed=true] { background: var(--teal); border-color: var(--teal); color: var(--surface); }
-.suitcase-wrap { background: #a1b49a; border-color: #748e70; }
-.suitcase-top, .suitcase-bottom, .pack-case-tools > span, .pack-case-status { color: #5c4b40; }
-.suitcase-frame { background: #bdcdb0; border-color: #819875; }
-.pack-cell { background: #eee5d1; border-color: #c9bda0; }
-.pack-cell.quick-zone { background: #ccddba; }
-.pack-cell:hover { background: #bacfa4; }
-.pack-case-tools { border-color: #7c9671; }
-.pack-case-tools button { background: #e4ebd6; border-color: #7b976e; color: #5c4b40; }
-.pack-case-tools button:hover:not(:disabled) { background: #f0f3e5; border-color: #4f744e; }
-.pack-case-tools .pack-case-close { background: var(--teal); color: var(--surface); border-color: var(--teal); }
-.pack-case-tools .pack-case-close:hover:not(:disabled) { background: var(--teal-deep); }
-.pack-notes > h2, .packing-inventory h2 { color: var(--teal-deep); }
-.pack-notes, .pack-notes > .eyebrow, .pack-notes li > span,
-.packing-inventory p, .packing-inventory > div:first-child > span,
-.packing-footnote { color: #6f6053; }
-.pack-notes li b { color: #5c4b40; }
-.pack-notes li:before { color: #8b5d39; }
-.pack-notes li { border-color: #bdbb9f; }
-.pack-supply { background: #f3ead8; border-color: #c7b58f; }
-.pack-supply.selected { background: #d6e3c8; border-color: #67865b; box-shadow: 0 0 0 2px #67865b40; }
-.pack-supply-copy strong { color: #5c4b40; }
-.pack-supply-copy small, .pack-supply-mark { color: #6f6053; }
-.pack-shelf-arrows button { color: var(--teal); background: var(--surface); border-color: #a6b18c; }
-.pack-feedback { background: #eaecdb; border-color: #cad2b4; }
-.pack-feedback > span, .pack-feedback p { color: #5c4b40; }
-.pack-feedback h2 { color: var(--teal); }
-.pack-feedback > div button { background: var(--surface); color: var(--teal); border-color: #94aa7d; }
-.pack-feedback.retry { background: #f1e5d6; border-color: #dac4ac; }
-.pack-feedback.retry h2 { color: #854b30; }
-.pack-feedback.retry > span, .pack-feedback li button, .pack-feedback li button > span { color: #785338; }
-.packing-footnote a { color: var(--teal); }
-
-@media (max-width: 1050px) {
-  header.site-header #nav { background: var(--surface); border-color: #d2d6c8; }
-  header.site-header #nav > .nav-home { background: #e3e7d7; }
-  header.site-header #nav .nav-section-panel,
-  header.site-header #nav .nav-arcade .nav-section-panel { background: #eee8d9; }
-}
-@media (max-width: 650px) {
-  .packing-table > .pack-notes { background: #f0eadb; border-color: #dcd4bc; }
-  .packing-table > .packing-inventory { background: #ede8d7; border-color: #dad2ba; }
-  .packing-inventory > div:first-child > .pack-mobile-tray-label { color: #6f6053; }
-}
-
-/* Clean cream, pale apricot and powder rose: colour on surfaces, quiet edges. */
-.theme-oat { --tint:#f4ede2; --accent:#796349; }
-.theme-clay { --tint:#f6e9e1; --accent:#8b604e; }
-.theme-blue { --tint:#f0e9ec; --accent:#77616a; }
-.theme-butter { --tint:#f6efdf; --accent:#796742; }
-.theme-stone { --tint:#f2eee5; --accent:#75674f; }
-.theme-rose { --tint:#f6e9e8; --accent:#866166; }
-header.site-header { background:#f9f5eff5; border-bottom-color:#efe6dc; }
-header.site-header #nav, header.site-header #nav .nav-section-panel { background:#fffcf8; border-color:#f0e7dd; box-shadow:0 12px 36px #785c4510; }
-header.site-header #nav summary { background:#f6ebdf; border-color:transparent; color:#725648; }
-header.site-header #nav .nav-arcade summary { background:#f6e9e8; border-color:transparent; color:#7e6267; }
-header.site-header #nav .nav-section[open] summary { background:#f1e1d2; border-color:transparent; color:#6c5142; }
-header.site-header #nav summary small, header.site-header #nav summary>span,
-header.site-header #nav .nav-section[open] summary small, header.site-header #nav .nav-section[open] summary>span,
-header.site-header #nav .nav-arcade summary small, header.site-header #nav .nav-arcade summary>span { color:#7c6658; }
-header.site-header #nav summary.chosen { box-shadow:inset 0 -2px #d6bba6; }
-header.site-header #nav summary:focus-visible { outline:2px solid #b9957c; outline-offset:3px; }
-header.site-header #nav summary:focus:not(:focus-visible) { outline:none; }
-header.site-header #nav .nav-section-panel, header.site-header #nav .nav-arcade .nav-section-panel { background:#fcf7f0; }
-header.site-header #nav .nav-section-panel button { background:#fffaf5; border-color:transparent; color:#705e50; }
-header.site-header #nav .nav-section-panel button:hover { background:#f6eadf; border-color:transparent; }
-header.site-header #nav .nav-section-panel button.active { background:#ecd6c4; border-color:transparent; color:#644b3b; }
-header.site-header #nav .nav-index, header.site-header #nav .active .nav-index { color:#7a6252; }
-header.site-header #nav>.nav-home, header.site-header #nav>.nav-home.active { background:#f6ecdf; color:#705645; }
-.nav-toggle { color:#705645; background:#f6ebdf; border-color:transparent; }
-.nav-scrim:not([hidden]) { background:#6953471a; }
-#collection,#detail { background:#fffcf7; }
-.topic { border-color:transparent; }
-.card { background:#fffdf9; border-color:#f0e9e1; box-shadow:none; }
-.card:hover { border-color:#dfcbbb; box-shadow:0 8px 24px #8464490a; }
-.artboard-paper { background:#f3ecde; border-color:#e6d8c6; }
-.artboard-rule { border-color:#e2d1bc; }
-.paper-ticket { background:#f2e5df; border-color:#e1cfc5; color:#80605b; }
-.hero-artboard:after { background:#e9dfce; }
-.garden-center { border-color:#f0e6d9; border-top-color:#ddc5b1; }
-.topic-intro { background:#f7eee3; border-left-color:#e1c8b1; }
-main>aside { background:#f8ecdf; border-top-color:#eee1d2; }
-.detail-toolbar { background:#fffcf7f5; border-color:#eee5dc; }
-.detail-toolbar .back,.price-home { background:#f5eadd; border-color:transparent; color:#735442; }
-.detail-toolbar .back-mark,.price-home>span { background:#fffcf7; }
-.toolbar-home { color:#735442; }
-.play-entries .game-teaser { background:#f6ecee; border-color:transparent; }
-.play-entries .market-teaser { background:#f7eedf; border-color:transparent; }
-.play-entries .detective-teaser { background:#f1eced; border-color:transparent; }
-.play-entries .pack-teaser { background:#f4efdf; border-color:transparent; }
-.game-worktable .game-case { background:#f6ecee; border-color:#eee0e2; }
-.game-worktable .ticket-0 { background:#f7efe3; }
-.game-worktable .ticket-1 { background:#f4f0e6; }
-.game-worktable .ticket-2 { background:#f6ecee; }
-.game-worktable .sort-card { border-color:#eadfd3; }
-.game-worktable .selection-help { background:#f8f0e5; }
-.market-judge,.clue-lab { background:#f6f0e5; border-color:#eee4d5; }
-.detective-sidebar { background:#f4eee6; }
-.detective-scene-story { background:#f8ecdf; border-color:#eee0d2; }
-.price-sheet { border-color:#f0e5d7; box-shadow:0 3px 0 -1px #eee5d7; }
-.price-sheet.sage { --sheet-tint:#f2eee5; --sheet-accent:#75674f; }
-.price-sheet.peach { --sheet-tint:#f6e9e1; --sheet-accent:#8b604e; }
-.price-sheet.rose { --sheet-tint:#f6e9e8; --sheet-accent:#866166; }
-.price-sheet.butter { --sheet-tint:#f6efdf; --sheet-accent:#796742; }
-.price-sheet.lavender { --sheet-tint:#f0e9ec; --sheet-accent:#77616a; }
-.price-sheet.sky { --sheet-tint:#f1ece9; --sheet-accent:#77655b; }
-@media(min-width:1051px) { header.site-header #nav { background:transparent; border:0; box-shadow:none; } }
-
-/* One clean paper canvas; colour is a small accent rather than a panel system. */
-:root { --paper:#fcfaf7; --surface:#fffdfa; --line:#f0ebe4; --illustration-paper:#faf7f1; }
 .theme-oat,.theme-clay,.theme-blue,.theme-butter,.theme-stone,.theme-rose {
- --tint:#f8f2ea; --accent:#866b56;
+ --tint:#eff7fb; --accent:#39779a;
 }
-header.site-header { background:#fcfaf7f5; border-bottom-color:#f0ebe4; }
-header.site-header #nav,header.site-header #nav .nav-section-panel { background:#fffdfa; border-color:#f3eee7; }
-header.site-header #nav summary,header.site-header #nav .nav-arcade summary,
-header.site-header #nav>.nav-home,header.site-header #nav>.nav-home.active { background:#faf5ee; border-color:transparent; color:#715c4c; }
-header.site-header #nav .nav-section[open] summary { background:#f6ecdf; color:#715c4c; }
-header.site-header #nav .nav-section-panel,header.site-header #nav .nav-arcade .nav-section-panel { background:#fdfaf5; }
-header.site-header #nav .nav-section-panel button { background:#fffdfa; color:#715c4c; }
-header.site-header #nav .nav-section-panel button.active { background:#f5e8d9; color:#6b4f3b; }
-header.site-header #nav summary.chosen { box-shadow:inset 0 -2px #e5d2bf; }
-.nav-toggle { background:#faf5ee; }
-.nav-scrim:not([hidden]) { background:#69534710; }
-#collection,#detail,#game { background-color:#fffdfa; }
-.hero { background-color:#fcfaf7; }
-.topic { background:#faf6ef; border-color:transparent; }
-.topic-number,.topic-arrow { color:#9b7d63; }
-.card { background:#fffdfa; border-color:#f2ede6; box-shadow:none; }
-.card-image,.home-editorial .card .card-image,.step-figure,.side-illustration { background:#faf7f1; }
-.card:hover { border-color:#e7d9c9; box-shadow:0 8px 24px #84644908; }
-.tag,.reading-label span,.tip,.detail-side { background:#faf4eb; }
-.tip { border-left-color:#deccb6; }
-.detail-side { border:0; }
-.artboard-paper { background:#f9f3e8; border-color:#eee1ce; box-shadow:7px 10px 0 -5px #f0e6d5,10px 14px 24px #84644906; }
-.paper-ticket { background:#f6eee7; border-color:#e9dace; }
-.hero-artboard:before,.hero-artboard:after { background:#f3e9da; }
-.garden-center { background:#fffdfa; border-color:#f0e8dc; border-top-color:#e5d3bf; }
-.topic-intro,main>aside { background:#fbf6ed; border-color:#f0e5d6; }
-.margin-note { background:#fbf7ee; border-color:#eadbc5; box-shadow:none; }
-.play-entries .game-teaser,.play-entries .market-teaser,.play-entries .detective-teaser,.play-entries .pack-teaser {
- background:#faf6ef; border-color:transparent; box-shadow:none;
+body { background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible { outline:2px solid #4186ad; outline-offset:4px; }
+button:disabled { cursor:default; }
+h1,h2,h3 { color:var(--ink); }
+.eyebrow,.detail-kicker,.steps-title,.related-label,.book-eyebrow { color:var(--muted); }
+header.site-header { background:#fdfdfbf5; border-bottom-color:transparent; }
+.brand,.brand small { color:var(--ink); }
+header.site-header #nav { background:transparent; border:0; box-shadow:none; }
+header.site-header #nav summary,header.site-header #nav .nav-arcade summary,header.site-header #nav>.nav-home { background:transparent; color:var(--ink); border-color:transparent; }
+header.site-header #nav>.nav-home.active { background:transparent; color:var(--teal); box-shadow:none; }
+header.site-header #nav summary.chosen { box-shadow:none; color:var(--teal); }
+header.site-header #nav .nav-section[open] summary { background:var(--pool-light); border-color:transparent; color:var(--teal); }
+header.site-header #nav summary small,header.site-header #nav summary>span,header.site-header #nav .nav-index { color:var(--muted); }
+header.site-header #nav .nav-section-panel,header.site-header #nav .nav-arcade .nav-section-panel { background:#fff; border-color:var(--line); box-shadow:0 14px 38px #426b8110; }
+header.site-header #nav .nav-section-panel button { background:var(--pool-light); color:var(--ink); border-color:transparent; }
+header.site-header #nav .nav-section-panel button.active,header.site-header #nav .nav-section-panel button:hover { background:#deeff8; color:var(--teal-deep); border-color:transparent; }
+header.site-header #nav summary:focus-visible { outline-color:#4186ad; }
+.nav-toggle { color:var(--teal); background:var(--pool-light); border-color:transparent; }
+.toggle-mark i { background:var(--teal); }
+.nav-scrim:not([hidden]) { background:#39677f20; }
+#collection,#detail,#game { background-color:var(--paper); }
+.topic { background:#f0f8fc; border-color:transparent; }
+.topic-number,.topic-arrow { color:var(--teal); }
+.topic small,.section-top p,.topic-intro p { color:var(--muted); }
+.topic-intro { background:var(--pool-light); border-color:transparent; border-left-color:#c6e5f3; }
+.filters button,.book-category-tabs button,.book-tabs button { background:transparent; color:var(--muted); border-color:transparent; }
+.filters button.active,.book-category-tabs button.selected,.book-tabs button.chosen { background:#e4f2fa; color:var(--teal-deep); border-color:transparent; }
+.meta,.search,.guide-heading { color:var(--muted); border-color:var(--line); }
+.search input { color:var(--ink); }
+.search input::placeholder { color:#758b97; }
+.card { background:var(--pool-light); border-color:transparent; box-shadow:none; }
+.card:hover { border-color:transparent; background:#e9f5fb; box-shadow:0 6px 20px #426b8108; }
+.card-image,.home-editorial .card .card-image,.side-illustration { background:transparent; }
+.card h3,.home-editorial .card:first-child h3,.home-editorial .card:last-child h3 { color:var(--ink); }
+.card p,.card-category,.card-number,.card-foot { color:var(--muted); }
+.card-arrow { color:var(--teal); }
+.tag,.reading-label span { color:var(--teal); background:#e7f3fa; }
+.card-foot { border-color:#deecf3; }
+.all-guides,.book-all,.game-primary,.game-worktable .game-primary,#gameResult .game-primary,.market-next,.clue-continue,.pack-case-tools .pack-case-close {
+ background:#dceff9; border-color:transparent; color:var(--teal-deep);
 }
-.play-entries .game-teaser h2,.play-entries .game-teaser .teaser-arrow { color:#725c4b; }
-.play-entries .game-teaser p,.play-entries .game-teaser h2 i,.play-entries .game-teaser .eyebrow { color:#7a6b5f; }
-.game-worktable .game-case,.game-worktable .game-sequence,.detective-board,.detective-quiz { background:#fffdfa; border-color:#f0e8dd; box-shadow:0 4px 14px #84644905; }
-.game-worktable .ticket-0,.game-worktable .ticket-1,.game-worktable .ticket-2 { background:#fbf6ee; }
-.game-worktable .sort-card { border-color:#ece1d2; box-shadow:0 3px 0 -2px #ece0ce; }
-.game-worktable .sort-card.picked { background:#f4e9de; border-color:#bc9c80; box-shadow:2px 3px 0 #e8d7c2; }
-.game-worktable .selection-help,.market-judge,.clue-lab,.detective-sidebar,.detective-notice,.detective-scene-story,#clueLabelKey { background:#fbf7ef; border-color:#efe5d7; }
-.game-postmark,.packing-ticket,.book-stamp,.book-preview .book-stamp { background:#faf2e6; border-color:#ead7bc; outline-color:#ead7bc88; box-shadow:none; }
-.price-sheet.sage,.price-sheet.peach,.price-sheet.rose,.price-sheet.butter,.price-sheet.lavender,.price-sheet.sky { --sheet-tint:#faf4e9; --sheet-accent:#866b56; }
-.price-sheet { background:#fffdfa; border-color:#f2e9dc; }
-.price-sheet .sheet-note { background:#fbf6ec; }
-.market-product,.market-product:nth-child(2),.market-receipt,.pack-supply { background:#fffdfa; border-color:#eee3d4; }
-.market-product.on-tray,.pack-supply.selected { background:#f8eee2; border-color:#c6a787; }
-.pack-feedback,.pack-feedback.retry,.detective-grade .detective-reason,.detective-run-result { background:#fbf5ea; }
-/* Primary and selected actions stay identifiable with dark ink on a light tint. */
-.all-guides,.book-all,.game-primary,.game-worktable .game-primary,#gameResult .game-primary,
-.market-next,.clue-continue,.pack-case-tools .pack-case-close {
- background:#f0dfca; border-color:#e1cbb1; color:#6b4e37;
+.all-guides:hover,.book-all:hover,.game-primary:hover,.game-worktable .game-primary:hover,#gameResult .game-primary:hover,.market-next:hover,.clue-continue:hover:not(:disabled),.pack-case-tools .pack-case-close:hover:not(:disabled) {
+ background:#cbe6f5; border-color:transparent; color:#245472;
 }
-.all-guides:hover,.book-all:hover,.game-primary:hover,.game-worktable .game-primary:hover,#gameResult .game-primary:hover,
-.market-next:hover,.clue-continue:hover:not(:disabled),.pack-case-tools .pack-case-close:hover:not(:disabled) {
- background:#e9d4ba; border-color:#ccb08c; color:#62462e;
+.detail-main h1,.step-label h2,.text-step .step-label h2,.detail-side>p { color:var(--ink); }
+.detail-lead,.step>p,.tip p,.diagram-note,.step-figure figcaption { color:#526b79; }
+.detail-toolbar { background:#fdfdfbf5; border-color:var(--line); }
+.detail-toolbar .back,.price-home { background:var(--pool-light); border-color:transparent; color:var(--teal-deep); }
+.detail-toolbar .back-mark,.price-home>span { background:#fff; color:var(--teal); }
+.toolbar-home,.toolbar-title { color:var(--teal); }
+.step,.step-index a,.side-related a,.article-sources,.steps-title { border-color:var(--line); }
+.step-label>span,.inline-guide,.source-link,.table-guide,.step-index a,.side-related a,.article-sources a { color:var(--teal); }
+.inline-guide { border-color:#b9d9eb; }
+.step-figure { border-color:transparent; background:var(--pool-light); }
+.step-figure figcaption { background:#f7fbfd; border-color:var(--line); }
+.tip,.detail-side { background:var(--pool-light); border-color:transparent; }
+.tip { border-left-color:#c5e4f3; }
+.tip b { color:var(--teal-deep); }
+.margin-note { background:#f1f8fc; border-color:transparent; box-shadow:none; }
+.margin-note:before { background:#cee7f280; }
+.margin-note strong { color:var(--ink); }
+.margin-note p,.margin-note small { color:var(--muted); }
+.margin-note a,.margin-note-icon,.margin-note-plus { color:var(--teal); }
+.margin-note>div { border-color:#dcebf2; }
+main>aside { background:#eaf6fc; border-color:transparent; }
+main>aside h2,main>aside h2 i { color:var(--ink); }
+main>aside p,main>aside span,footer,footer p { color:var(--muted); }
+.closing-link { color:var(--teal); border-color:#bfdeed; }
+.play-entries-head { border-color:var(--line); }
+.play-entries-head h2 { color:var(--ink); }
+.play-entries-head>span,.play-entries-head p { color:var(--muted); }
+.play-entries .game-teaser,.play-entries .market-teaser,.play-entries .detective-teaser,.play-entries .pack-teaser { background:var(--pool-light); border-color:transparent; box-shadow:none; }
+.play-entries .game-teaser h2,.play-entries .game-teaser h2 i { color:var(--ink); }
+.play-entries .game-teaser p,.play-entries .game-teaser .eyebrow { color:var(--muted); }
+.play-entries .teaser-arrow,.detective-teaser-icon { color:var(--teal); }
+.teaser-cards span { color:var(--teal); background:#fff; border-color:#c7dfeb; box-shadow:none; }
+.teaser-cards span:nth-child(2),.teaser-cards span:nth-child(3) { color:#7a9aab; }
+.pack-teaser-icon { background:#e0f0f8; border-color:#9dc6db; }
+.pack-teaser-icon:before { border-color:#9dc6db; }
+.pack-teaser-icon:after { color:#8db7ce; content:'→'; }
+/* The sorting table keeps tactile tickets, without the old scrapbook decoration. */
+.game-intro { border-color:var(--line); }
+.game-intro h1,.little-game-heading h1,.packing-heading h1,.market-heading h1,.detective-heading h1 { color:var(--ink); }
+.game-intro h1 em,.game-intro h1>span,.little-game-heading h1 em,.little-game-heading h1>span,.packing-heading h1>span,.market-heading h1 em,.detective-heading h1 span { color:var(--teal); }
+.game-intro p,.little-game-heading p,.packing-heading p,.market-heading p,.detective-heading p { color:var(--muted); }
+.game-postmark,.packing-ticket,.book-stamp,.detective-seal { background:#edf7fc; color:var(--teal); border-color:transparent; outline-color:transparent; box-shadow:none; }
+.game-postmark b,.packing-ticket b { color:var(--teal); }
+.game-worktable .game-case,.game-worktable .game-sequence { background:var(--pool-light); border-color:transparent; box-shadow:none; }
+.game-worktable .game-case { transform:none; }
+.game-worktable .game-case:before,.game-worktable .game-sequence:before { display:none; }
+.game-worktable .game-case h2 { color:var(--ink); }
+.game-worktable .game-case>p,.game-worktable .game-instructions,.game-note,.game-note>span,.sequence-head { color:var(--muted); border-color:var(--line); }
+.case-number,.case-category { color:var(--teal); }
+.case-category { background:#fff; }
+.puzzle-case-art { background:#fff; border-color:transparent; box-shadow:none; transform:none; }
+.puzzle-case-art img { background:transparent; }
+.game-worktable .ticket-0,.game-worktable .ticket-1,.game-worktable .ticket-2 { background:#fff; }
+.game-worktable .sort-card { border-color:#dcecf4; border-radius:10px; box-shadow:none; }
+.game-worktable .sort-card:before,.game-worktable .sort-card:after { display:none; }
+.game-worktable .sort-card.picked { background:#ddf0fa; border-color:#87bdd9; box-shadow:0 0 0 2px #87bdd922; }
+.game-worktable .sort-position { color:#81aac0; border-color:#deedf5; }
+.game-worktable .sort-content { color:var(--ink); }
+.game-worktable .sort-movers button { background:#eff8fc; border-color:transparent; color:var(--teal); }
+.game-worktable .selection-help { background:#e8f4fb; color:var(--muted); }
+.game-secondary,.game-skip { color:var(--teal); border-color:#dcecf4; }
+#gameResult { background:#fff; border-color:transparent; box-shadow:0 24px 90px #24496120; }
+#gameResult::backdrop { background:#345b702e; }
+#gameResult h2,#resultBody strong,.result-stamp { color:var(--teal-deep); }
+#resultBody p,.answer-steps,.result-guide { color:var(--muted); border-color:var(--line); }
+#resultBody .result-explanation { background:var(--pool-light); border-color:transparent; }
+/* Clear surfaces around the functioning balance. */
+.market-back,.market-progress,.market-case p,.market-placement p,.market-footnote,.market-read,.market-round-note { color:var(--muted); border-color:var(--line); }
+.market-progress i { background:#e0eef5; }
+.market-progress i.current,.market-progress i.done { background:#95c5df; }
+.market-case>span { background:#eaf5fb; color:var(--teal); }
+.market-case h2,.market-judge h2 { color:var(--ink); }
+.market-stage { background:#eef8fc; border-color:transparent; box-shadow:none; }
+.market-drop { border-color:#bdddeb; background:#ffffffb3; }
+.market-drop>span,.market-placement button,.market-shelf-heading,.product-spec,.product-deal,.product-location { color:var(--muted); }
+.market-product,.market-product:nth-child(2) { background:#fff; border-color:#e2eef5; box-shadow:none; }
+.market-product.on-tray { background:#e2f3fb; border-color:#a3cbe0; }
+.product-info strong { color:var(--ink); }
+.product-price,.product-price small,.product-letter { color:var(--teal-deep); }
+.market-judge,.market-receipt { background:var(--pool-light); border-color:transparent; box-shadow:none; }
+.market-judge p,.market-verdict,.market-equations p,.market-receipt p,.market-receipt small { color:var(--muted); }
+.market-equations strong,.market-result h2,.market-finish h1 { color:var(--teal-deep); }
+.market-equations>div,.market-choices button { background:#fff; border-color:#deedf5; color:var(--ink); }
+.market-choices button:hover { background:#ddf0fa; border-color:#a1c9dd; }
+.market-price-entry { background:var(--pool-light); border-color:transparent; color:var(--teal); }
+.market-price-entry small { color:var(--muted); }
+/* The detective scene retains its distinct stain colours and evidence. */
+.detective-board,.detective-quiz { background:#fff; border-color:transparent; box-shadow:none; }
+.detective-sidebar,.clue-lab,.detective-notice,.detective-scene-story,#clueLabelKey { background:var(--pool-light); border-color:transparent; }
+.detective-paper h2,.detective-sidebar h2,.clue-lab-head h2,.clue-observation h3,.detective-scene-story h2,.detective-quiz>h2,.detective-treatment-title { color:var(--ink); }
+.detective-sidebar p,.detective-hint,.detective-notice,.detective-steps li,.clue-lab-head p,.clue-observation p,.detective-scene-story p,.detective-links,.detective-source,.clue-example-note { color:var(--muted); }
+.detective-options button { background:var(--pool-light); border-color:transparent; color:var(--ink); }
+.detective-options strong { color:var(--ink); }
+.detective-options small { color:var(--muted); }
+.detective-options button[aria-pressed=true] { background:#deeff9; border-color:#a4cce0; }
+.clue-targets button,.detective-evidence-strip button { background:#fff; border-color:#e0edf4; color:var(--teal); }
+.clue-targets button[aria-pressed=true],.detective-evidence-strip button.current,.detective-evidence-strip button.found { background:#e0f1fa; border-color:#a7cee2; color:var(--teal-deep); }
+.detective-flow span { color:var(--muted); border-color:#e1eef5; }
+.detective-flow span[aria-current] { background:#e3f2fa; color:var(--teal-deep); border-color:transparent; }
+.detective-run-result,.detective-grade .detective-reason { background:#edf7fc; color:var(--muted); }
+.detective-evidence,.detective-evidence div,.detective-search-tools,.detective-run-bar { border-color:#deedf4; color:var(--muted); }
+.detective-search-tools button,.detective-evidence span,.detective-top,.clue-drag-hint,.clue-observation>span { color:var(--teal); }
+/* Price sheets are still dense, readable reference sheets. */
+.price-notebook { color:var(--ink); }
+.notebook-heading h2,.notebook-heading h2 em,.sheet-heading h3,.price-panel-head h2 { color:var(--ink); }
+.notebook-heading p,.book-provenance,.book-closing,.sheet-source,.sheet-topline,.sheet-english,.sheet-heading p { color:var(--muted); }
+.book-provenance { background:var(--pool-light); border-color:transparent; }
+.price-sheet.sage,.price-sheet.peach,.price-sheet.rose,.price-sheet.butter,.price-sheet.lavender,.price-sheet.sky { --sheet-tint:#eef7fc; --sheet-accent:#39779a; }
+.price-sheet,.price-notebook:not(.book-preview) .price-sheet { background:#f6fbfd; border-color:transparent; box-shadow:none; }
+.sheet-pin { display:none; }
+.sheet-heading img { background:transparent; }
+.sheet-rule,.sheet-item,.sheet-source,.book-tabs { border-color:#deedf4; }
+.item-name { color:var(--ink); }
+.item-name small { color:var(--muted); }
+.item-amount,.item-actions a { color:var(--teal-deep); }
+.item-amount i { color:#90b7cd; }
+.item-leader { border-color:#cfe5f0; }
+.sheet-note,.price-sheet .sheet-note { background:#eaf5fb; }
+.sheet-note p,.sheet-more,.price-footnote,.price-context { color:var(--muted); }
+.price-table th { background:#eaf5fb; color:var(--teal-deep); }
+.price-table td { border-color:var(--line); color:var(--ink); }
+.price-table tr:nth-child(even) { background:#f7fbfd; }
+.table-price { color:var(--teal-deep); }
+/* Pack the same puzzle into a light blue suitcase. */
+.pack-trip-tabs { border-color:var(--line); }
+.pack-trip-tabs button { background:var(--pool-light); border-color:transparent; color:var(--muted); }
+.pack-trip-tabs button[aria-pressed=true] { background:#dceff9; border-color:transparent; color:var(--teal-deep); }
+.suitcase-wrap { background:#bddbea; border-color:#aacfe0; box-shadow:inset 0 0 0 4px #d4e9f3,0 8px 20px #3d6c8410; }
+.suitcase-handle { border-color:#8fb7cc; }
+.suitcase-top,.suitcase-bottom,.pack-case-status,.pack-mobile-status { color:#37647c; }
+.suitcase-frame { background:#ecf6fb; border-color:#aacfe0; }
+.pack-cell { border-color:#c7dfeb; background:#f5fbfd; }
+.pack-cell:nth-child(even) { background:#eef7fb; }
+.suitcase-lid { background:#c5dfec; border-color:#9bc6db; }
+.suitcase-lid>span,.suitcase-lid>small { color:#37647c; background:#eff8fc; border-color:transparent; }
+.pack-case-tools { border-color:#a8cbdc; }
+.pack-case-tools button,.pack-shelf-arrows button { background:#f3fafe; color:var(--teal); border-color:transparent; }
+.pack-case-tools>span,.pack-notes li>span,.packing-inventory p,.pack-supply-copy small,.pack-supply-mark,.packing-footnote { color:var(--muted); }
+.pack-notes h2,.pack-notes li b,.packing-inventory h2,.pack-supply-copy strong { color:var(--ink); }
+.pack-notes li { border-color:#deedf4; }
+.pack-notes li:before { color:#83abc1; }
+.pack-supply { background:#f5fafc; border-color:transparent; box-shadow:none; }
+.pack-supply.selected { background:#dceff9; border-color:#a4cbdf; box-shadow:0 0 0 2px #a4cbdf22; }
+.pack-feedback,.pack-feedback.retry { background:var(--pool-light); border-color:transparent; }
+.pack-feedback h2 { color:var(--teal-deep); }
+.pack-feedback>span,.pack-feedback p,.pack-feedback li button { color:var(--muted); }
+.pack-feedback>div button { background:#e1f1fa; color:var(--teal-deep); border-color:transparent; }
+.empty h3 { color:var(--ink); }
+.empty p { color:var(--muted); }
+.search-suggestions button,.search-all { background:var(--pool-light); border-color:transparent; color:var(--teal); }
+.goose-tooltip { background:#edf7fc; color:var(--teal-deep); }
+.goose-companion:focus-visible { outline-color:#7babca; }
+@media(max-width:1050px) {
+ header.site-header #nav { background:#fff; border-color:var(--line); }
+ header.site-header #nav>.nav-home,header.site-header #nav>.nav-home.active { background:var(--pool-light); }
+ header.site-header #nav .nav-section-panel,header.site-header #nav .nav-arcade .nav-section-panel { background:#f5fafd; }
 }
-.filters button.active,.book-category-tabs button.selected,.clue-targets button[aria-pressed=true],
-.detective-flow span[aria-current],.detective-evidence-strip button.current,.pack-trip-tabs button[aria-pressed=true] {
- background:#f6eadb; border-color:#e1cdb3; color:#6b4e37; font-weight:600;
-}
-.detective-evidence-strip button.found,.detective-options button[aria-pressed="true"] { background:#f6ecdf; border-color:#ccb08c; }
 @media(max-width:650px) {
- .packing-table>.pack-notes,.packing-table>.packing-inventory { background:#fcf7ef; border-color:#f0e6d7; box-shadow:none; }
+ .packing-table>.suitcase-wrap { box-shadow:inset 0 0 0 4px #d4e9f3,0 6px 15px #3d6c8410; }
+ .packing-table>.pack-notes,.packing-table>.packing-inventory { background:var(--pool-light); border-color:transparent; box-shadow:none; }
+ .pack-shelf { scrollbar-color:#c4deec transparent; }
+ .packing-inventory>div:first-child>.pack-mobile-tray-label { color:var(--muted); }
 }
