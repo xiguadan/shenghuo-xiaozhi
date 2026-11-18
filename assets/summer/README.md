@@ -4,16 +4,17 @@
 
 - `pool.webp`：透明背景油画棒泳池插画，1536×1024；只负责水面、池沿和梯子。小鹅为可独立动效的原生 SVG。
 - `categories.webp`：透明背景的六格分类插画，3 列 × 2 行，通过 CSS 背景定位使用，无需六次请求。
-- `life-hand.woff2`：基于 [霞鹜文楷 Light v1.530](https://github.com/lxgw/LxgwWenKai/releases/tag/v1.530) 生成的网站字符子集，衍生名称 Life Pool Hand。仅用于站名与大标题。原作者及 SIL OFL 1.1 许可见 `OFL-WenKai.txt`。
-- `life-reading.woff2`：基于 [Noto Sans SC Variable](https://github.com/notofonts/noto-cjk/tree/main/Sans/Variable/TTF/Subset) 生成的网站字符子集，衍生名称 Life Reading Sans。正文、导航和卡片使用该字体，支持 400–600 字重。原作者及 SIL OFL 1.1 许可见 `OFL-Reading-Sans.txt`。`life-text.woff2` 为保留的旧版字体，页面不再加载。
+- `life-round.woff2` / `life-round-title.woff2`：用户选定的 A 版轻圆体。基于 [寒蝉圆黑体 v3.750](https://github.com/Warren2060/ChillRoundGothic/releases/tag/v3.750) 的 Normal / Regular 字重制作网站字符子集，衍生名称分别为 Life Pool Round / Life Pool Round Title。正文与导航使用 Normal，站名、分类与标题使用 Regular，避免合成粗体。原作者与 SIL OFL 1.1 许可见 `OFL-ChillRound.txt`。
+- `life-hand.woff2` / `life-text.woff2`（霞鹜文楷，许可 `OFL-WenKai.txt`）和 `life-reading.woff2`（Noto Sans SC，许可 `OFL-Reading-Sans.txt`）为保留的旧版字体，页面不再加载。
 - `water-light.svg` 与根目录 `water.js`：原生光纹与点击涟漪，叠加在泳池插画上并由其透明轮廓裁切。水面支持暂停、离屏暂停和减少动态效果偏好；池沿与梯子保持稳定。
 
-更新标题后，可用原版 `LXGWWenKai-Light.ttf` 和 `fonttools[woff]` 重新生成字符子集：
+更新网页文字后，可用官方原版 OTF 与 `fonttools[woff]` 重新生成两个字体子集：
 
 ```sh
-python3 tools/build-hand-font.py /path/to/LXGWWenKai-Light.ttf
-python3 tools/build-hand-font.py /path/to/NotoSansSC-VF.ttf --reading
+python3 tools/build-round-fonts.py /path/to/ChillRoundGothic_Normal.otf /path/to/ChillRoundGothic_Regular.otf
 ```
+
+子集包含页面全部静态文字、数字和 ASCII 字符，直接由网站提供，无需访问外部字体服务。
 
 ## 图片生成提示词
 

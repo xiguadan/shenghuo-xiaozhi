@@ -12,6 +12,6 @@ GitHub Pages 从 main 分支的根目录发布。相对资源路径和 hash 路�
 
 ## 视觉与字体
 
-2026-11-18 更新为夏日泳池风格。`palette.css` 管理蓝白配色，`pool.css` 管理新版布局与手写标题，`mobile-type.css` 管理手机阅读字号。站名与大标题使用文楷 Light，正文、导航和卡片使用 Noto Sans SC 阅读字体；开源字体及插画说明见 [assets/summer/README.md](assets/summer/README.md)。无需运行构建命令即可预览和发布。
+2026-11-18 更新为夏日泳池风格。`palette.css` 管理蓝白配色，`pool.css` 管理新版布局与圆体排版，`mobile-type.css` 管理手机阅读字号。全站采用用户选定的 A 版轻圆体：正文与导航使用寒蝉圆黑体 Normal，站名、标题与分类使用同家族 Regular；开源字体及插画说明见 [assets/summer/README.md](assets/summer/README.md)。无需运行构建命令即可预览和发布。
 
 Tips 封面与步骤图使用蓝灰色描边和器物配色，食材与污渍保留辨识颜色。首页泳池叠加缓慢流动的光纹与扩散波纹，点击水面可出现涟漪；现有暂停按钮同时控制水面，离屏、切换窗口与减少动态效果偏好均可暂停或关闭动效。
