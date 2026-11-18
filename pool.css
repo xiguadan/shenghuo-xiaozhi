@@ -351,10 +351,10 @@ footer .brand { font-family:var(--hand); font-size:25px; font-weight:400; }
 
 /* 2026-11-18: align the small details as carefully as the larger pool. */
 @font-face {
- font-family:'Life Text'; src:url('assets/summer/life-text.woff2?v=20261118') format('woff2');
+ font-family:'Life Reading'; src:url('assets/summer/life-reading.woff2?v=20261118') format('woff2');
  font-style:normal; font-weight:400 600; font-display:swap;
 }
-:root { --reading:'Life Text','PingFang SC','Microsoft YaHei',sans-serif; }
+:root { --reading:'Life Reading','PingFang SC','Microsoft YaHei',sans-serif; }
 body { font-family:var(--reading); font-weight:400; font-synthesis:none; }
 button,input,select { font-family:inherit; }
 .section-top .search input { font-family:var(--reading); }
@@ -456,10 +456,62 @@ button,input,select { font-family:inherit; }
 
 @media(max-width:700px) {
  .grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { display:block; font-size:17px; }
- .card-title-topic { display:block; }
- .card-title-rest { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; font-size:16px; line-height:1.6; }
 }
 /* Reading cards stay above the wandering goose; a held goose still lifts above them. */
 .topic,.grid .card,.play-entries .game-teaser { position:relative; z-index:8; }
 #priceBoard .notebook-heading h2,#priceBoard .notebook-heading h2 em { color:var(--ink); }
 .book-preview .notebook-heading { border-color:var(--line); }
+
+/* Moving reflections are clipped to the painted pool; no layout or ladder movement. */
+.hero .pool-water-surface {
+ position:absolute; z-index:-1; width:82%; height:100%; right:-5%; top:0;
+ overflow:hidden; pointer-events:none;
+ -webkit-mask:url('assets/summer/pool.webp') center/100% 100% no-repeat;
+ mask:url('assets/summer/pool.webp') center/100% 100% no-repeat;
+}
+.pool-water-light { position:absolute; inset:-12%; display:block; background:url('assets/summer/water-light.svg') center/100% 100% no-repeat; transform-origin:center; }
+.water-light-front { opacity:.64; animation:water-light-drift 13s ease-in-out infinite alternate; }
+.water-light-back { opacity:.33; animation:water-light-cross 19s ease-in-out -7s infinite alternate; }
+.pool-water-ring,.pool-touch-ripple { position:absolute; display:block; width:96px; height:30px; margin:-15px 0 0 -48px; border:2px solid #ffffffb3; border-radius:47% 53% 45% 55%; opacity:0; }
+.pool-water-ring { animation:water-ring-spread 8s ease-out infinite; }
+.ring-one { left:73%; top:38%; animation-delay:-1s; }
+.ring-two { left:45%; top:67%; animation-delay:-4s; }
+.ring-three { left:90%; top:78%; animation-delay:-6s; }
+.pool-touch-ripple { width:64px; height:22px; margin:-11px 0 0 -32px; animation:water-touch-spread 1.8s ease-out both; }
+.water-paused .pool-water-surface *, .water-inactive .pool-water-surface *, .water-outside .pool-water-surface * { animation-play-state:paused!important; }
+@keyframes water-light-drift { from { transform:translate(-3%,-2%) rotate(-1deg); } to { transform:translate(4%,3%) rotate(2deg); } }
+@keyframes water-light-cross { from { transform:translate(3%,-3%) rotate(177deg) scale(1.08); } to { transform:translate(-4%,3%) rotate(182deg) scale(.98); } }
+@keyframes water-ring-spread { 0% { opacity:0; transform:scale(.45); } 15% { opacity:.7; } 70% { opacity:.16; } 100% { opacity:0; transform:scale(2.5,2.1); } }
+@keyframes water-touch-spread { 0% { opacity:.8; transform:scale(.3); } 100% { opacity:0; transform:scale(3.5,2.9); } }
+@media(min-width:701px) and (max-width:1100px) { .hero .pool-water-surface { width:90%; right:-15%; } }
+@media(max-width:700px) {
+ .hero .pool-water-surface { width:110%; height:370px; top:282px; right:-9%; }
+ .pool-water-ring { width:65px; height:22px; margin:-11px 0 0 -32px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .pool-water-surface .pool-water-light { animation:none!important; opacity:.2; }
+ .pool-water-surface .pool-water-ring,.pool-water-surface .pool-touch-ripple { display:none; }
+}
+
+/* A quiet reading hierarchy: handwriting for mastheads, one sans face for everything else. */
+.brand { gap:11px; align-items:center; }
+.brand-logo { display:block; width:42px; height:42px; flex:0 0 42px; object-fit:contain; }
+body { font-family:var(--reading); letter-spacing:0; }
+header.site-header #nav .nav-label,header.site-header #nav summary { font-family:var(--reading); font-weight:400; }
+.grid .card,.grid.home-editorial .card:first-child,.grid.home-editorial .card:last-child { min-height:164px; }
+.grid .card .card-copy,.grid.home-editorial .card:first-child .card-copy,.grid.home-editorial .card:last-child .card-copy { padding:18px 23px 16px 4px; }
+.grid .card .tag { font-size:11px; line-height:1.5; color:#6d8592; font-weight:400; }
+.grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { font-family:var(--reading); font-size:18px; font-weight:500; line-height:1.5; margin:7px 0 8px; }
+.grid .card p { font-family:var(--reading); font-size:14px; line-height:1.7; font-weight:400; color:#627986; -webkit-line-clamp:2; }
+.grid .card .card-foot { font-size:11px; line-height:1.5; color:#7a919d; padding-top:12px; }
+.detail-lead,.step>p { font-family:var(--reading); font-size:16px; line-height:1.9; }
+.step-label h2,.text-step .step-label h2 { font-family:var(--reading); font-weight:500; }
+@media(max-width:700px) {
+ header.site-header .brand { font-size:26px; gap:9px; }
+ .brand-logo { width:34px; height:34px; flex-basis:34px; }
+ .grid .card,.grid.home-editorial .card:first-child,.grid.home-editorial .card:last-child { min-height:154px; }
+ .grid .card .card-copy,.grid.home-editorial .card:first-child .card-copy,.grid.home-editorial .card:last-child .card-copy { padding:14px 17px 13px 4px; }
+ .grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { font-size:17px; line-height:1.5; margin:6px 0 7px; }
+ .grid .card p { font-size:13px; line-height:1.7; }
+ .detail-lead,.step>p { font-size:16px; line-height:1.9; }
+}

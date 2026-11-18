@@ -4,13 +4,15 @@
 
 - `pool.webp`：透明背景油画棒泳池插画，1536×1024；只负责水面、池沿和梯子。小鹅为可独立动效的原生 SVG。
 - `categories.webp`：透明背景的六格分类插画，3 列 × 2 行，通过 CSS 背景定位使用，无需六次请求。
-- `life-hand.woff2`：基于 [霞鹜文楷 Light v1.530](https://github.com/lxgw/LxgwWenKai/releases/tag/v1.530) 生成的网站字符子集，衍生名称 Life Pool Hand。仅用于标题。正文使用同家族 Regular 字重的 `life-text.woff2`（衍生名称 Life Pool Text），保持手写气质与阅读清晰度。原作者及 SIL OFL 1.1 许可见 `OFL-WenKai.txt`。
+- `life-hand.woff2`：基于 [霞鹜文楷 Light v1.530](https://github.com/lxgw/LxgwWenKai/releases/tag/v1.530) 生成的网站字符子集，衍生名称 Life Pool Hand。仅用于站名与大标题。原作者及 SIL OFL 1.1 许可见 `OFL-WenKai.txt`。
+- `life-reading.woff2`：基于 [Noto Sans SC Variable](https://github.com/notofonts/noto-cjk/tree/main/Sans/Variable/TTF/Subset) 生成的网站字符子集，衍生名称 Life Reading Sans。正文、导航和卡片使用该字体，支持 400–600 字重。原作者及 SIL OFL 1.1 许可见 `OFL-Reading-Sans.txt`。`life-text.woff2` 为保留的旧版字体，页面不再加载。
+- `water-light.svg` 与根目录 `water.js`：原生光纹与点击涟漪，叠加在泳池插画上并由其透明轮廓裁切。水面支持暂停、离屏暂停和减少动态效果偏好；池沿与梯子保持稳定。
 
 更新标题后，可用原版 `LXGWWenKai-Light.ttf` 和 `fonttools[woff]` 重新生成字符子集：
 
 ```sh
 python3 tools/build-hand-font.py /path/to/LXGWWenKai-Light.ttf
-python3 tools/build-hand-font.py /path/to/LXGWWenKai-Regular.ttf --text
+python3 tools/build-hand-font.py /path/to/NotoSansSC-VF.ttf --reading
 ```
 
 ## 图片生成提示词

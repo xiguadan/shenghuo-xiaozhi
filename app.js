@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s),key='little-life-notes-v1';
-const assetUrl=p=>p+'?v=20261118-polish';
+const assetUrl=p=>p+'?v=20261118-water';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const migrate=c=>({'蔬果价格':'日常物价','蔬果处理':'食材处理'}[c]||c);
 let navMenuOpen=false,navFreezeUntil=0;
@@ -24,13 +24,24 @@ function updateNav(){
 function closeMobileNav(returnFocus=false){document.querySelectorAll('.nav-section').forEach(d=>d.open=false);navMenuOpen=false;$('.site-header').classList.remove('nav-open');$('#navToggle').setAttribute('aria-expanded','false');$('#navScrim').hidden=true;if(returnFocus)$('#navToggle').focus({preventScroll:true})}
 
 function searchText(n){return [n.title,n.content,n.intro,n.category,n.place,n.spec,n.group,n.tag,...(n.steps||[])].join(' ').toLowerCase()}
-function cardTitle(title){const i=title.search(/[：？]/);return i<0?esc(title):`<span class="card-title-topic">${esc(title.slice(0,i+1))}</span><span class="card-title-rest">${esc(title.slice(i+1))}</span>`}
+const guidePreviews={
+ mango:['芒果怎么切丁','顺着果核切下果肉，划格后用勺取出。'],
+ oil:['衣服沾了油，怎么洗','先吸走浮油，再按面料处理残渍。'],
+ 'shrimp-peel':['熟虾怎么剥','从腹部松壳，逐节剥开，轻推尾肉。'],
+ 'rice-leftovers':['剩米饭怎么保存','分进浅盒及时冷藏，别等整锅放凉。'],
+ grease:['灶台上的油膜怎么清','先取走浮油，再分区处理残留油膜。'],
+ wardrobe:['换季衣物怎么收','洗净晾透后分类，针织衫以折叠为主。'],
+ 'mirror-clean':['镜子怎么擦才不花','先除灰，再少量湿擦，检查侧光残痕。'],
+ 'drawer-zones':['抽屉怎么整理','按拿取动作分区，最后再决定隔盒。']
+};
+function guideListTitle(n){return guidePreviews[n.id]?.[0]||n.title.split(/[：？]/)[0]}
+function guideListSummary(n){if(guidePreviews[n.id])return guidePreviews[n.id][1];const first=(n.intro||'').split(/[。！？]/)[0];return first.length>42?first.slice(0,42)+'…':first+'。'}
 function render(){updateNav();$('#collection').classList.toggle('price-collection',selected==='日常物价');if($('#detail').hidden)$('.hero').hidden=selected==='日常物价';$('#search').placeholder=selected==='日常物价'?'搜一搜：土豆、洗衣液…':'搜索生活常识…';const query=$('#search').value.trim().toLowerCase();$('#gameTeaser').hidden=selected!=='全部'||!!query;$('#marketTeaser').hidden=selected!=='全部'||!!query;$('#detectiveTeaser').hidden=selected!=='全部'||!!query;$('#playEntries').hidden=selected!=='全部'||!!query;$('#packingTeaser').hidden=selected!=='全部'||!!query;$('#topics').hidden=selected!=='全部'||!!query;$('#topics').innerHTML=Object.entries(topics).slice(0,6).map(([c,t],i)=>`<button class="topic theme-${themeOf(c)}" data-topic="${c}"><span class="topic-number">0${i+1}</span><span class="topic-drawing summer-icon summer-icon-${i}" aria-hidden="true"></span><strong>${c}</strong><small>${t[0]}</small><span class="topic-arrow">↗</span></button>`).join('');document.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>setCategory(b.dataset.topic));const info=topics[selected];$('#topicIntro').hidden=!info;$('#topicIntro').innerHTML=info?`<div><span>THE EVERYDAY GUIDE / ${esc(selected)}</span><h2>${esc(info[0])}</h2><p>${esc(info[1])}</p></div><div class="intro-icon">${info[2]}</div>`:'';
 const all=notes;let filtered=rankedGuides(all.filter(n=>selected==='全部'||n.category===selected),query);if(selected==='日常物价')filtered=[];
 const editorial=selected==='全部'&&!query&&!showAllGuides;
 const displayed=editorial?['mango','oil','shrimp-peel','rice-leftovers','grease','wardrobe','mirror-clean','drawer-zones'].map(findGuide):filtered;
 $('#guideHeading').hidden=selected!=='全部'||!!query;$('#grid').classList.toggle('home-editorial',editorial);$('#grid').hidden=selected==='日常物价';
-$('#grid').innerHTML=displayed.map(n=>`<a class="card illustrated theme-${themeOf(n.category)}" href="${href(n.id)}" aria-label="打开：${esc(n.title)}"><div class="card-image"><img src="${esc(assetUrl(n.image))}" alt="" loading="lazy" width="400" height="290"></div><div class="card-copy"><div class="card-top"><span class="tag">${esc(n.tag)}</span><span class="card-number">图解手册</span></div><div class="card-category">${esc(n.category)}</div><h3>${cardTitle(n.title)}</h3><p>${esc(n.intro||'')}</p><div class="card-foot"><span>${n.steps.length} 个步骤 · 含操作图解</span><span class="card-arrow" aria-hidden="true">↗</span></div></div></a>`).join('');
+$('#grid').innerHTML=displayed.map(n=>`<a class="card illustrated theme-${themeOf(n.category)}" href="${href(n.id)}" aria-label="打开：${esc(n.title)}"><div class="card-image"><img src="${esc(assetUrl(n.image))}" alt="" loading="lazy" width="400" height="290"></div><div class="card-copy"><div class="card-top"><span class="tag">${esc(selected==='全部'?n.category:n.tag)}</span><span class="card-number">图解手册</span></div><div class="card-category">${esc(n.category)}</div><h3>${esc(guideListTitle(n))}</h3><p>${esc(guideListSummary(n))}</p><div class="card-foot"><span>${n.steps.length} 步图解</span><span class="card-arrow" aria-hidden="true">↗</span></div></div></a>`).join('');
 if(!query)insertMarginNotes(displayed);const more=$('#allGuides');more.hidden=selected!=='全部'||!!query;more.textContent=showAllGuides?'收起技巧 ↑':`浏览全部 ${notes.length} 篇生活技巧 ↗`;more.onclick=()=>{showAllGuides=!showAllGuides;render()};const pricePage=selected==='日常物价';$('#priceBoard').hidden=!(pricePage||selected==='全部'&&!query);if(!$('#priceBoard').hidden)renderPrices(query,{teaser:selected==='全部'});const priceCount=pricePage?visiblePriceCount(query):0;$('#count').textContent=`${selected} · ${pricePage?priceCount+' 项价格':(editorial?`先读 ${displayed.length} 篇 / 共 ${filtered.length} 篇技巧`:filtered.length+' 篇技巧')}`;$('#empty').hidden=pricePage||!!filtered.length;
 if(!pricePage&&!filtered.length){$('#empty').innerHTML=`<span class="empty-search-mark" aria-hidden="true">⌕</span><h3>还没找到这件小事</h3><p>${selected==='全部'?'试试更具体的关键词，或者从下面的小问题开始。':'当前在「'+esc(selected)+'」中查找，也可以试试全部分类。'}</p><div class="search-suggestions">${searchSuggestions(query).map(t=>`<button type="button" data-search-suggest="${esc(t)}">${esc(t)} ↗</button>`).join('')}</div>${selected!=='全部'?'<button type="button" id="searchAllCategories" class="search-all">在全部分类中查找 ↗</button>':''}`;document.querySelectorAll('[data-search-suggest]').forEach(b=>b.onclick=()=>applySearchSuggestion(b.dataset.searchSuggest));if($('#searchAllCategories'))$('#searchAllCategories').onclick=()=>applySearchSuggestion(query)}
 }
@@ -71,7 +82,7 @@ $('#search').oninput=render;window.addEventListener('hashchange',navigateRoute);
 const headerSizeObserver=new ResizeObserver(entries=>document.documentElement.style.setProperty('--site-header-height',entries[0].target.getBoundingClientRect().height+'px'));headerSizeObserver.observe($('.site-header'));
 
 let heroIndex=0,heroPaused=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function showHero(delta=0){if(delta&&!heroPaused&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const panel=$('.garden-center');panel.classList.remove('page-turn');void panel.offsetWidth;panel.classList.add('page-turn')} heroIndex=(heroIndex+delta+notes.length)%notes.length;const n=notes[heroIndex];$('#heroCategory').textContent=n.category;$('#heroTitle').textContent=n.title;$('#heroIndex').textContent=String(heroIndex+1).padStart(2,'0')+' / '+notes.length;$('#heroTip').onclick=()=>go(href(n.id));$('#heroPause').textContent=heroPaused?'▷':'Ⅱ';$('#heroPause').setAttribute('aria-pressed',String(heroPaused));$('#heroPause').setAttribute('aria-label',heroPaused?'播放动效':'暂停动效');$('.hero-garden').classList.toggle('paused',heroPaused)}
+function showHero(delta=0){if(delta&&!heroPaused&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const panel=$('.garden-center');panel.classList.remove('page-turn');void panel.offsetWidth;panel.classList.add('page-turn')} heroIndex=(heroIndex+delta+notes.length)%notes.length;const n=notes[heroIndex];$('#heroCategory').textContent=n.category;$('#heroTitle').textContent=n.title;$('#heroIndex').textContent=String(heroIndex+1).padStart(2,'0')+' / '+notes.length;$('#heroTip').onclick=()=>go(href(n.id));$('#heroPause').textContent=heroPaused?'▷':'Ⅱ';$('#heroPause').setAttribute('aria-pressed',String(heroPaused));$('#heroPause').setAttribute('aria-label',heroPaused?'播放动效':'暂停动效');$('.hero-garden').classList.toggle('paused',heroPaused);$('.hero').classList.toggle('water-paused',heroPaused)}
 $('#heroNext').onclick=()=>showHero(1);$('#heroPrev').onclick=()=>showHero(-1);$('#heroPause').onclick=()=>{heroPaused=!heroPaused;showHero()};showHero();setInterval(()=>{if(!heroPaused&&!document.hidden&&$('#detail').hidden&&$('#game').hidden)showHero(1)},6500);
 
 const heroArt=$('.hero-artboard');
