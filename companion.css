@@ -1,5 +1,5 @@
 /* Soft, articulated white goose. Its outer position is controlled by the walking path. */
-.goose-companion { position:fixed; z-index:7; width:92px; height:104px; border:0; padding:0; border-radius:35%; background:transparent; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+.goose-companion { position:fixed; z-index:200; width:92px; height:104px; border:0; padding:0; border-radius:35%; background:transparent; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
 .goose-scene { display:block; width:100%; height:100%; overflow:visible; pointer-events:none; }
 .goose-puppet { transform-origin:100px 170px; }
 .goose-facing { transform-origin:0 0; }
@@ -14,7 +14,7 @@
 .is-walking .goose-leg-back { animation:goose-step .9s ease-in-out infinite; }
 .is-walking .goose-leg-front { animation:goose-step .9s -.45s ease-in-out infinite; }
 .is-walking .goose-puppet { animation:goose-waddle .9s ease-in-out infinite; }
-.goose-companion.is-dragging { cursor:grabbing; z-index:80; }
+.goose-companion.is-dragging { cursor:grabbing; z-index:210; }
 .is-dragging .goose-puppet { animation:goose-struggle .3s ease-in-out infinite; filter:drop-shadow(0 5px 4px #9c806614); transform-origin:100px 80px; }
 .is-dragging .goose-wing-front { animation:goose-flap .21s ease-in-out infinite alternate; }
 .is-dragging .goose-wing-back { animation:goose-flap .21s -.1s ease-in-out infinite alternate-reverse; }

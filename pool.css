@@ -459,7 +459,7 @@ button,input,select { font-family:inherit; }
 @media(max-width:700px) {
  .grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { display:block; font-size:17px; }
 }
-/* Reading cards stay above the wandering goose; a held goose still lifts above them. */
+/* Keep interactive cards in a local layer; the floating companion lives above page content. */
 .topic,.grid .card,.play-entries .game-teaser { position:relative; z-index:8; }
 #priceBoard .notebook-heading h2,#priceBoard .notebook-heading h2 em { color:var(--ink); }
 .book-preview .notebook-heading { border-color:var(--line); }
