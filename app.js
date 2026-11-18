@@ -10,7 +10,7 @@ const findGuide=id=>notes.find(n=>n.id===id);
 let priceView='handbook',budgetTab='all',showAllGuides=false;
 const href=id=>id.startsWith('category:')?'#category/'+encodeURIComponent(id.slice(9)):'#guide/'+encodeURIComponent(id);
 function rich(text){return String(text??'').split(/(\[\[[^\]]+\]\])/g).map(part=>{const m=part.match(/^\[\[([^|]+)\|([^\]]+)\]\]$/);if(!m)return esc(part);if(m[1].startsWith('category:')?categories.includes(m[1].slice(9)):findGuide(m[1]))return `<a class="inline-guide" href="${href(m[1])}">${esc(m[2])} ↗</a>`;return esc(m[2])}).join('')}
-function go(hash){if(location.hash===hash)route();else location.hash=hash}
+function go(hash){if(location.hash===hash)navigateRoute();else location.hash=hash}
 function setCategory(c){$('#search').value='';priceGroup='全部品类';priceMode='全部来源';go(c==='全部'?'#collection':'#category/'+encodeURIComponent(c))}
 function updateNav(){
  const play=['#play','#market','#detective','#pack'].includes(location.hash);
@@ -72,11 +72,55 @@ function getRef(ref){if(ref.startsWith('n:'))return notes[Number(ref.slice(2))];
 function stepSummary(text){const plain=String(text).replace(/\[\[[^|]+\|([^\]]+)\]\]/g,'$1').split(/[。；]/)[0];return plain.length>18?plain.slice(0,18)+'…':plain}
 function detailTitle(title){const i=title.indexOf('：');return i<0?esc(title):`<span class="detail-title-main">${esc(title.slice(0,i))}</span><span class="detail-title-colon">：</span><span class="detail-title-rest">${esc(title.slice(i+1))}</span>`}
 function openDetail(ref){const n=getRef(ref);if(!n)return false;currentRef=ref;const drawings=stepIllustrations[n.id]||[];$('#detail').innerHTML=`<div class="detail-wrap theme-${themeOf(n.category)}"><div class="detail-toolbar"><button class="back" id="back"><span class="back-mark" aria-hidden="true">←</span><span>返回上一页</span></button><span class="toolbar-title">${esc(n.category)} · ${esc(n.title)}</span><a class="toolbar-home" href="#" aria-label="返回首页">首页 ↗</a></div><div class="detail-layout"><article class="detail-main"><div class="detail-kicker">生活手册 ／ ${esc(n.category)}</div><h1>${detailTitle(n.title)}</h1><p class="detail-lead">${rich(n.intro)}</p><div class="reading-label"><span>✳ ${n.steps.length} 个步骤</span><span>${drawings.length} 张操作图解</span><span>${esc(n.tag)}</span></div><div class="steps-title">THE HOW-TO <span>／</span> 跟着图解，一步一步来</div><p class="diagram-note">图解用于说明动作与顺序；具体操作请结合下方文字与注意事项。</p>${n.steps.map((s,i)=>`<section class="step ${drawings[i]?'illustrated-step':'text-step'}"><div class="step-label"><span>${String(i+1).padStart(2,'0')}</span><h2>${esc(n.stepTitles?.[i]||stepSummary(s))}</h2></div>${drawings[i]?`<figure class="step-figure"><img src="${esc(assetUrl(drawings[i].image))}" alt="步骤${i+1}：${esc(drawings[i].caption)}" width="520" height="220" loading="lazy"><figcaption>STEP ${String(i+1).padStart(2,'0')} · ${esc(drawings[i].caption)}</figcaption></figure>`:''}<p>${rich(s)}</p></section>`).join('')}${articleMarginNote(n.id)}${n.tip?`<div class="tip"><b>✳ &nbsp; 做之前，再留意一下</b><p>${rich(n.tip)}</p></div>`:''}${n.sources?`<div class="article-sources"><b>资料参考</b>${n.sources.map(([t,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(t)} ↗</a>`).join('')}</div>`:''}</article><aside class="detail-side"><span>IN THIS LITTLE GUIDE</span><img class="side-illustration" src="${esc(assetUrl(n.image))}" alt="" width="240" height="174"><p>先看图解，<br>再试着动手。</p><nav class="step-index" aria-label="步骤目录">${n.steps.map((s,i)=>`<a href="#" data-step-index="${i}">${String(i+1).padStart(2,'0')} ${esc(n.stepTitles?.[i]||stepSummary(s))}</a>`).join('')}</nav><span class="related-label">接着读一读</span><nav class="side-related" aria-label="更多相关内容">${notes.filter(x=>x.category===n.category&&x.id!==n.id).slice(0,3).map(x=>`<a href="${href(x.id)}">${esc(x.title)} ↗</a>`).join('')}</nav></aside></div></div>`;$('#back').onclick=()=>returnFromGuide(n.category);document.querySelectorAll('[data-step-index]').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelectorAll('.detail-main .step')[Number(a.dataset.stepIndex)].scrollIntoView({behavior:'smooth',block:'start'})});return true}
-function route(){cancelPackingDrag();cancelMarketDrag();closeMobileNav();navFreezeUntil=performance.now()+1000;$('.site-header').classList.remove('header-away');let h;try{h=decodeURIComponent(location.hash.slice(1))}catch{h=''}if(h==='pack'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navPacking').classList.add('active');$('#navPacking').setAttribute('aria-current','page');renderPacking();window.scrollTo({top:0,behavior:'smooth'});return}if(h==='detective'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navDetective').classList.add('active');$('#navDetective').setAttribute('aria-current','page');renderDetective();window.scrollTo({top:0,behavior:'smooth'});return}if(h==='market'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navMarket').classList.add('active');$('#navMarket').setAttribute('aria-current','page');renderMarket();window.scrollTo({top:0,behavior:'smooth'});return}if(h==='play'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navGame').classList.add('active');$('#navGame').setAttribute('aria-current','page');$('#game').setAttribute('aria-label','生活解题局');renderGame();window.scrollTo({top:0,behavior:'smooth'});return}const isGuide=h.startsWith('guide/'),isNote=h.startsWith('note/');if(isGuide||isNote){const ref=h.slice(isGuide?6:5);if(openDetail(ref)){selected=getRef(ref).category;updateNav();toggleViews(true);window.scrollTo({top:0,behavior:'smooth'});return}}currentRef=null;toggleViews(false);if(h.startsWith('category/')){const c=migrate(h.slice(9));selected=categories.includes(c)?c:'全部'}else selected='全部';render();if(h)$('#collection').scrollIntoView({behavior:'smooth'});else window.scrollTo({top:0,behavior:'smooth'})}
+function route({instant=false}={}){cancelPackingDrag();cancelMarketDrag();closeMobileNav();navFreezeUntil=performance.now()+1000;$('.site-header').classList.remove('header-away');let h;try{h=decodeURIComponent(location.hash.slice(1))}catch{h=''}if(h==='pack'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navPacking').classList.add('active');$('#navPacking').setAttribute('aria-current','page');renderPacking();window.scrollTo({top:0,behavior:instant?'instant':'smooth'});return}if(h==='detective'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navDetective').classList.add('active');$('#navDetective').setAttribute('aria-current','page');renderDetective();window.scrollTo({top:0,behavior:instant?'instant':'smooth'});return}if(h==='market'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navMarket').classList.add('active');$('#navMarket').setAttribute('aria-current','page');renderMarket();window.scrollTo({top:0,behavior:instant?'instant':'smooth'});return}if(h==='play'){toggleViews(true);$('#detail').hidden=true;$('#game').hidden=false;updateNav();document.querySelectorAll('#nav [data-cat]').forEach(b=>{b.classList.remove('active');b.removeAttribute('aria-current')});$('#navGame').classList.add('active');$('#navGame').setAttribute('aria-current','page');$('#game').setAttribute('aria-label','生活解题局');renderGame();window.scrollTo({top:0,behavior:instant?'instant':'smooth'});return}const isGuide=h.startsWith('guide/'),isNote=h.startsWith('note/');if(isGuide||isNote){const ref=h.slice(isGuide?6:5);if(openDetail(ref)){selected=getRef(ref).category;updateNav();toggleViews(true);window.scrollTo({top:0,behavior:instant?'instant':'smooth'});return}}currentRef=null;toggleViews(false);if(h.startsWith('category/')){const c=migrate(h.slice(9));selected=categories.includes(c)?c:'全部'}else selected='全部';render();if(h)$('#collection').scrollIntoView({behavior:instant?'instant':'smooth'});else window.scrollTo({top:0,behavior:instant?'instant':'smooth'})}
 function toggleViews(detail){$('#game').hidden=true;if($('#gameResult').open)$('#gameResult').close();$('#detail').hidden=!detail;$('.hero').hidden=detail;$('#collection').hidden=detail;document.querySelector('main > aside').hidden=detail}
 const routeTrail=[];let activeHash=location.hash,activeScroll=window.scrollY,backDestination=null;
-function returnFromGuide(category){const previous=routeTrail.pop();if(previous){backDestination=previous;go(previous.hash||'#')}else go('#category/'+encodeURIComponent(category))}
-function navigateRoute(){if(!backDestination)routeTrail.push({hash:activeHash,scroll:activeScroll});activeHash=location.hash;route();if(backDestination){const y=backDestination.scroll;backDestination=null;requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:y,behavior:'instant'})))}}
+function returnFromGuide(category){const previous=routeTrail[routeTrail.length-1];if(previous){backDestination=previous;go(previous.hash||'#')}else go('#category/'+encodeURIComponent(category))}
+const routeMain=document.querySelector('main');
+const routeMotion=matchMedia('(prefers-reduced-motion:reduce)');
+let routeSerial=0,routeAnimation=null;
+function commitRoute(destination,previous,restore){
+ if(restore&&routeTrail[routeTrail.length-1]===restore)routeTrail.pop();
+ else if(!restore&&previous.hash!==destination)routeTrail.push(previous);
+ activeHash=destination;route({instant:true});
+ if(restore)window.scrollTo({top:restore.scroll,behavior:'instant'});
+ activeScroll=window.scrollY;
+}
+function focusRouteHeading(){
+ const section=!$('#detail').hidden?$('#detail'):!$('#game').hidden?$('#game'):null;
+ const heading=section?.querySelector('h1')||
+  (activeHash.startsWith('#category/')?$('#topicIntro:not([hidden]) h2')||$('#priceBoard h2'):
+   activeHash==='#collection'?$('.section-top h2'):$('.hero h1'));
+ if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true})}
+}
+function finishRouteTransition(serial){
+ if(serial!==routeSerial)return;
+ routeAnimation?.cancel();routeAnimation=null;routeMain.style.opacity='';routeMain.style.transform='';
+ routeMain.inert=false;routeMain.removeAttribute('aria-busy');delete routeMain.dataset.routeTransition;
+ focusRouteHeading();
+}
+async function navigateRoute(){
+ const serial=++routeSerial,destination=location.hash;
+ const previous={hash:activeHash,scroll:window.scrollY},restore=backDestination;backDestination=null;
+ const style=getComputedStyle(routeMain),from={opacity:style.opacity,transform:style.transform};
+ routeAnimation?.cancel();routeAnimation=null;routeMain.style.opacity='';routeMain.style.transform='';
+ closeMobileNav();window.scrollTo({top:window.scrollY,behavior:'instant'});
+ if(routeMotion.matches||document.hidden||!routeMain.animate){
+  commitRoute(destination,previous,restore);finishRouteTransition(serial);return;
+ }
+ routeMain.inert=true;routeMain.setAttribute('aria-busy','true');routeMain.dataset.routeTransition='leaving';
+ routeAnimation=routeMain.animate([from,{opacity:0,transform:'translateY(-4px)'}],{duration:100,easing:'ease-out',fill:'forwards'});
+ await routeAnimation.finished.catch(()=>{});if(serial!==routeSerial)return;
+ routeMain.style.opacity='0';routeAnimation.cancel();routeAnimation=null;
+ commitRoute(destination,previous,restore);
+ if(routeMotion.matches||document.hidden){finishRouteTransition(serial);return}
+ routeMain.dataset.routeTransition='entering';
+ routeAnimation=routeMain.animate([{opacity:0,transform:'translateY(9px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'});
+ routeMain.style.opacity='';
+ await routeAnimation.finished.catch(()=>{});finishRouteTransition(serial);
+}
+routeMotion.addEventListener('change',()=>{if(routeMotion.matches)routeAnimation?.finish()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)routeAnimation?.finish()});
 window.addEventListener('scroll',()=>{activeScroll=window.scrollY},{passive:true});
 $('#search').oninput=render;window.addEventListener('hashchange',navigateRoute);route();
 const headerSizeObserver=new ResizeObserver(entries=>document.documentElement.style.setProperty('--site-header-height',entries[0].target.getBoundingClientRect().height+'px'));headerSizeObserver.observe($('.site-header'));

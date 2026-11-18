@@ -659,3 +659,17 @@ body.hero-in-view #gooseCompanion:not(.is-dragging) { visibility:hidden; opacity
 .pool-goose-hint { opacity:.8; font-size:10px; }
 .pool-hero:has(.pool-note.is-open) .pool-goose-hint { opacity:0; }
 .note-delivered .pool-note { animation-play-state:running; }
+
+/* Give the desktop heading a real stretch of dry pool-side space. */
+@media(min-width:1101px) {
+ .pool-hero.hero {
+  --pool-shore:calc(max(5%, calc((100% - 1160px) / 2)) + clamp(245px, 22.4vw, 322px) + 64px);
+ }
+ .pool-hero.hero .pool-water,.pool-hero.hero .pool-water-surface {
+  left:var(--pool-shore); right:auto; width:calc(100% - var(--pool-shore) + 180px);
+ }
+}
+/* Main content changes gently while the header and page controls stay steady. */
+main[data-route-transition] { pointer-events:none; }
+main h1[tabindex="-1"]:focus,main h2[tabindex="-1"]:focus { outline:none; }
+@media(prefers-reduced-motion:reduce) { main[data-route-transition] { transform:none!important; } }
