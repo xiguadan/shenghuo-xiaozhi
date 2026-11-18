@@ -7,6 +7,7 @@
 - `life-round.woff2` / `life-round-title.woff2`：用户选定的 A 版轻圆体。基于 [寒蝉圆黑体 v3.750](https://github.com/Warren2060/ChillRoundGothic/releases/tag/v3.750) 的 Normal / Regular 字重制作网站字符子集，衍生名称分别为 Life Pool Round / Life Pool Round Title。正文与导航使用 Normal，站名、分类与标题使用 Regular，避免合成粗体。原作者与 SIL OFL 1.1 许可见 `OFL-ChillRound.txt`。
 - `life-hand.woff2` / `life-text.woff2`（霞鹜文楷，许可 `OFL-WenKai.txt`）和 `life-reading.woff2`（Noto Sans SC，许可 `OFL-Reading-Sans.txt`）为保留的旧版字体，页面不再加载。
 - `water-light.svg` 与根目录 `water.js`：原生光纹与点击涟漪，叠加在泳池插画上并由其透明轮廓裁切。水面支持暂停、离屏暂停和减少动态效果偏好；池沿与梯子保持稳定。
+- 根目录 `hero.js`：泳池小鹅、抓取挣扎、纸条展开与 12 条经挑选的手册问答；只在用户操作时更换内容，洗牌避免短期重复。使用现有 `goose.svg` 的分层部件绘制叼纸条的小鹅，未新增图片请求。键盘与触屏可用，尊重减少动态效果偏好。
 
 更新网页文字后，可用官方原版 OTF 与 `fonttools[woff]` 重新生成两个字体子集：
 

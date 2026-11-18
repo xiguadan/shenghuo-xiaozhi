@@ -81,14 +81,6 @@ window.addEventListener('scroll',()=>{activeScroll=window.scrollY},{passive:true
 $('#search').oninput=render;window.addEventListener('hashchange',navigateRoute);route();
 const headerSizeObserver=new ResizeObserver(entries=>document.documentElement.style.setProperty('--site-header-height',entries[0].target.getBoundingClientRect().height+'px'));headerSizeObserver.observe($('.site-header'));
 
-let heroIndex=0,heroPaused=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function showHero(delta=0){if(delta&&!heroPaused&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const panel=$('.garden-center');panel.classList.remove('page-turn');void panel.offsetWidth;panel.classList.add('page-turn')} heroIndex=(heroIndex+delta+notes.length)%notes.length;const n=notes[heroIndex];$('#heroCategory').textContent=n.category;$('#heroTitle').textContent=n.title;$('#heroIndex').textContent=String(heroIndex+1).padStart(2,'0')+' / '+notes.length;$('#heroTip').onclick=()=>go(href(n.id));$('#heroPause').textContent=heroPaused?'▷':'Ⅱ';$('#heroPause').setAttribute('aria-pressed',String(heroPaused));$('#heroPause').setAttribute('aria-label',heroPaused?'播放动效':'暂停动效');$('.hero-garden').classList.toggle('paused',heroPaused);$('.hero').classList.toggle('water-paused',heroPaused)}
-$('#heroNext').onclick=()=>showHero(1);$('#heroPrev').onclick=()=>showHero(-1);$('#heroPause').onclick=()=>{heroPaused=!heroPaused;showHero()};showHero();setInterval(()=>{if(!heroPaused&&!document.hidden&&$('#detail').hidden&&$('#game').hidden)showHero(1)},6500);
-
-const heroArt=$('.hero-artboard');
-heroArt.addEventListener('pointermove',e=>{if(heroPaused||e.pointerType==='touch')return;const r=heroArt.getBoundingClientRect();heroArt.style.setProperty('--tilt-x',((e.clientY-r.top)/r.height-.5)*-8+'deg');heroArt.style.setProperty('--tilt-y',((e.clientX-r.left)/r.width-.5)*10+'deg')});
-heroArt.addEventListener('pointerleave',()=>{heroArt.style.setProperty('--tilt-x','0deg');heroArt.style.setProperty('--tilt-y','0deg')});
-
 $('#navToggle').onclick=()=>{navMenuOpen=!navMenuOpen;$('.site-header').classList.toggle('nav-open',navMenuOpen);$('.site-header').classList.remove('header-away');$('#navToggle').setAttribute('aria-expanded',String(navMenuOpen));$('#navScrim').hidden=!navMenuOpen};
 $('#navScrim').onclick=()=>closeMobileNav(true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navMenuOpen)closeMobileNav(true)});

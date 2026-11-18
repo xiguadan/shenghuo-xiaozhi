@@ -9,7 +9,7 @@
  reduced.addEventListener('change',clearRipples);
  document.querySelector('#heroPause').addEventListener('click',clearRipples);
  hero.addEventListener('pointerdown',e=>{
-  if(e.button!==0||reduced.matches||hero.classList.contains('water-paused')||e.target.closest('a,button,input,.hero-copy'))return;
+  if(e.button!==0||reduced.matches||hero.classList.contains('water-paused')||e.target.closest('a,button,input,.hero-copy,.pool-note'))return;
   const r=surface.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
   if(x<0||y<r.height*.2||x>r.width||y>r.height)return;
   const ripple=document.createElement('i');ripple.className='pool-touch-ripple';ripple.style.left=x/r.width*100+'%';ripple.style.top=y/r.height*100+'%';surface.append(ripple);
