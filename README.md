@@ -12,4 +12,4 @@ GitHub Pages 从 main 分支的根目录发布。相对资源路径和 hash 路�
 
 ## 视觉与字体
 
-2026-11-18 更新为夏日泳池风格。`palette.css` 管理蓝白配色，`pool.css` 管理新版布局与手写标题，`mobile-type.css` 管理手机阅读字号。正文使用系统字体，标题的开源字体及插画说明见 [assets/summer/README.md](assets/summer/README.md)。无需运行构建命令即可预览和发布。
+2026-11-18 更新为夏日泳池风格。`palette.css` 管理蓝白配色，`pool.css` 管理新版布局与手写标题，`mobile-type.css` 管理手机阅读字号。正文使用文楷 Regular，标题使用 Light 字重；开源字体及插画说明见 [assets/summer/README.md](assets/summer/README.md)。无需运行构建命令即可预览和发布。

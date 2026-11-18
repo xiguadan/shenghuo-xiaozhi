@@ -348,3 +348,118 @@ footer .brand { font-family:var(--hand); font-size:25px; font-weight:400; }
  .detail-title-colon { display:none; }
  .detail-title-rest { display:block; margin-top:5px; font-size:.81em; line-height:1.7; letter-spacing:.3px; }
 }
+
+/* 2026-11-18: align the small details as carefully as the larger pool. */
+@font-face {
+ font-family:'Life Text'; src:url('assets/summer/life-text.woff2?v=20261118') format('woff2');
+ font-style:normal; font-weight:400 600; font-display:swap;
+}
+:root { --reading:'Life Text','PingFang SC','Microsoft YaHei',sans-serif; }
+body { font-family:var(--reading); font-weight:400; font-synthesis:none; }
+button,input,select { font-family:inherit; }
+.section-top .search input { font-family:var(--reading); }
+.hero p { font-size:16px; line-height:1.9; }
+.card p,.topic-intro p,.play-entries .game-teaser p { font-size:14px; line-height:1.8; }
+.detail-lead,.step>p { font-size:17px; line-height:1.95; }
+.step-label h2,.text-step .step-label h2 { font-family:var(--reading); font-weight:500; }
+/* Balanced icon + label groups, with the text centred on the tile. */
+.topics { gap:14px; }
+.topic {
+ display:flex; flex-direction:column; justify-content:center; align-items:center;
+ min-height:136px; padding:15px 18px; gap:9px; text-align:center;
+}
+.topic .topic-drawing { flex:none; width:58px; height:58px; margin:0; }
+.topic strong { display:block; flex:none; font-family:var(--reading); font-size:17px; line-height:1.5; align-self:center; margin:0; }
+.topic-arrow { font-size:15px; right:12px; bottom:9px; }
+/* All four games share one illustration family and one reserved drawing area. */
+.play-entries .game-teaser {
+ grid-template-columns:88px minmax(0,1fr); gap:20px; min-height:150px;
+ padding:24px 30px 24px 24px; align-items:center;
+}
+.game-entry-art {
+ display:block; grid-column:1; grid-row:1; width:88px; height:88px;
+ position:static; background:url('assets/summer/game-icons.webp') no-repeat;
+ background-size:200% 200%; align-self:center; justify-self:center;
+}
+.game-entry-art-0 { background-position:0 0; }
+.game-entry-art-1 { background-position:100% 0; }
+.game-entry-art-2 { background-position:0 100%; }
+.game-entry-art-3 { background-position:100% 100%; }
+.play-entries .game-teaser>div { grid-column:2; grid-row:1; min-width:0; align-self:center; }
+.play-entries .game-teaser h2 { font-size:24px; line-height:1.5; margin:0 0 7px; }
+.play-entries .game-teaser p { margin:0; padding:0; }
+.play-entries .teaser-arrow { right:17px; bottom:11px; font-size:19px; }
+.play-entries-head { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:7px; padding-top:32px; margin-bottom:12px; }
+.play-entries-head h2 { margin:0; }
+.play-entries-head p { margin:0; font-size:14px; }
+/* A uniform image stage keeps every tip aligned, independent of source artwork. */
+.grid .card,.grid.home-editorial .card:first-child,.grid.home-editorial .card:last-child { grid-template-columns:126px minmax(0,1fr); min-height:196px; }
+.grid .card .card-image,.grid.home-editorial .card:first-child .card-image,.grid.home-editorial .card:last-child .card-image {
+ display:grid; place-items:center; align-self:center; width:126px; height:126px; padding:10px;
+}
+.grid .card .card-image img { width:106px; height:106px; object-fit:contain; object-position:center; transform:none; }
+.grid .card:hover .card-image img { transform:none; }
+.grid .card .card-copy,.grid.home-editorial .card:first-child .card-copy,.grid.home-editorial .card:last-child .card-copy { padding:20px 24px 18px 4px; }
+.grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { font-family:var(--reading); font-size:19px; line-height:1.55; }
+.grid .card p { font-size:14px; line-height:1.75; }
+.grid .card .tag,.grid .card .card-foot { font-size:12px; }
+.grid>.margin-note { margin-top:5px; }
+/* A blue shell, a lavender access zone and clearly distinguishable summer pieces. */
+.suitcase-wrap,.packing-table>.suitcase-wrap { background:#c5e3f3; border-color:#acceE1; box-shadow:inset 0 0 0 4px #e2f2fa,0 7px 20px #477b9512; }
+.suitcase-frame { background:#edf7fc; border-color:#a1c8dd; box-shadow:inset 0 1px 5px #6c99b01a; }
+.suitcase-handle { border-color:#8bb8d0; }
+.suitcase-wheels i { background:#88aec5; }
+.pack-cell,.pack-cell:nth-child(even) { background:#f4fafe; border-color:#c6e0ee; }
+.pack-cell.quick-zone,.pack-cell.quick-zone:nth-child(even) { background:#e7eafa; border-color:#c7d3eb; }
+.pack-cell:hover,.pack-cell.quick-zone:hover { background:#d5eafa; }
+.pack-cell:focus-visible { outline-color:#6c9fc0; }
+.suitcase-lid { background:repeating-linear-gradient(90deg,#bedff1 0,#bedff1 24px,#cce7f5 25px,#cce7f5 28px); border-color:#9bc6df; box-shadow:inset 0 0 0 2px #dfF2fa; }
+.suitcase-lid>i { color:#729eb7; }
+.pack-piece-cells i { border-color:#7298b344; box-shadow:inset 0 0 0 2px #ffffff4d; }
+.pack-piece.selected .pack-piece-cells i { box-shadow:inset 0 0 0 2px #608eaf,inset 0 0 0 4px #ffffff77; }
+.pack-piece:focus-visible .pack-piece-cells i { box-shadow:inset 0 0 0 3px #608eaf; }
+.pack-piece-name { color:#36556c; text-shadow:none; }
+.pack-supply-stage>.pack-supply-art {
+ border-color:#7ea2ba55;
+ background:repeating-linear-gradient(0deg,transparent 0,transparent 23px,#7b9fb533 23px,#7b9fb533 24px),repeating-linear-gradient(90deg,var(--item-color) 0,var(--item-color) 23px,#7b9fb544 23px,#7b9fb544 24px);
+}
+.packing-ghost>i { border-color:#7298b355; }
+.pack-preview.hint i { background:#a3d4ee77; border-color:#6c9fc0; }
+@media(min-width:701px) and (max-width:1100px) {
+ .topics { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .topic { min-height:127px; }
+}
+@media(max-width:700px) {
+ .hero p { font-size:15px; }
+ .topics { grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
+ .topic { min-height:112px; padding:12px 9px; gap:7px; }
+ .topic .topic-drawing { width:46px; height:46px; }
+ .topic strong { font-size:15px; line-height:1.5; }
+ .topic-arrow { font-size:12px; right:8px; bottom:6px; }
+ .play-entries .game-teaser { grid-template-columns:66px minmax(0,1fr); gap:15px; padding:18px 23px 18px 16px; min-height:134px; }
+ .game-entry-art { width:66px; height:66px; }
+ .play-entries .game-teaser h2 { font-size:23px; line-height:1.5; margin-bottom:5px; }
+ .play-entries .game-teaser p { font-size:13px; line-height:1.75; }
+ .play-entries-head p { font-size:13px; flex-basis:auto; }
+ .play-entries-head { gap:5px; }
+ .grid .card,.grid.home-editorial .card:first-child,.grid.home-editorial .card:last-child { grid-template-columns:90px minmax(0,1fr); min-height:172px; }
+ .grid .card .card-image,.grid.home-editorial .card:first-child .card-image,.grid.home-editorial .card:last-child .card-image { width:90px; height:104px; padding:5px; }
+ .grid .card .card-image img { width:80px; height:94px; }
+ .grid .card .card-copy,.grid.home-editorial .card:first-child .card-copy,.grid.home-editorial .card:last-child .card-copy { padding:14px 17px 13px 4px; }
+ .grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { font-size:18px; line-height:1.55; }
+ .grid .card p { font-size:13px; line-height:1.75; }
+ .grid .card .tag,.grid .card .card-foot { font-size:11px; }
+ .detail-lead,.step>p { font-size:16px; line-height:1.95; }
+ .step-label h2,.text-step .step-label h2 { font-size:18px; }
+ .packing-table>.suitcase-wrap { box-shadow:inset 0 0 0 4px #e2f2fa,0 6px 15px #477b9512; }
+}
+
+@media(max-width:700px) {
+ .grid .card h3,.grid.home-editorial .card:first-child h3,.grid.home-editorial .card:last-child h3 { display:block; font-size:17px; }
+ .card-title-topic { display:block; }
+ .card-title-rest { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; font-size:16px; line-height:1.6; }
+}
+/* Reading cards stay above the wandering goose; a held goose still lifts above them. */
+.topic,.grid .card,.play-entries .game-teaser { position:relative; z-index:8; }
+#priceBoard .notebook-heading h2,#priceBoard .notebook-heading h2 em { color:var(--ink); }
+.book-preview .notebook-heading { border-color:var(--line); }
