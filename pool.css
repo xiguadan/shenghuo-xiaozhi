@@ -804,3 +804,45 @@ main>aside::before {
 @media(prefers-reduced-motion:reduce) {
  #collection::before,#collection::after,.play-entries::before,.play-entries::after,main>aside::before { opacity:.3; }
 }
+
+/* Mobile home stays browseable without becoming a long wall of cards. */
+@media(max-width:700px) {
+ .grid.home-editorial > a.card:nth-of-type(n+5) { display:none; }
+ .grid.home-editorial > details.margin-note:nth-of-type(n+2) { display:none; }
+ .grid.home-editorial { gap:9px; margin-top:12px; }
+ .grid.home-editorial > a.card,
+ .grid.home-editorial > a.card:first-child,
+ .grid.home-editorial > a.card:last-child {
+  grid-template-columns:76px minmax(0,1fr);
+  min-height:136px;
+  border-radius:13px;
+ }
+ .grid.home-editorial > a.card .card-image,
+ .grid.home-editorial > a.card:first-child .card-image,
+ .grid.home-editorial > a.card:last-child .card-image {
+  width:76px; height:88px; padding:4px;
+ }
+ .grid.home-editorial > a.card .card-image img { width:68px; height:80px; }
+ .grid.home-editorial > a.card .card-copy,
+ .grid.home-editorial > a.card:first-child .card-copy,
+ .grid.home-editorial > a.card:last-child .card-copy { padding:10px 12px 9px 1px; }
+ .grid.home-editorial > a.card h3,
+ .grid.home-editorial > a.card:first-child h3,
+ .grid.home-editorial > a.card:last-child h3 { font-size:16px; line-height:1.45; margin:4px 0 5px; }
+ .grid.home-editorial > a.card p { font-size:12px; line-height:1.55; }
+ .grid.home-editorial > a.card .tag,
+ .grid.home-editorial > a.card .card-foot { font-size:10px; }
+ .grid.home-editorial > a.card .card-foot { padding-top:7px; }
+ .grid.home-editorial > details.margin-note { padding:13px 16px; margin:3px 0; }
+ .grid.home-editorial > details.margin-note strong { font-size:17px; line-height:1.45; }
+ .grid.home-editorial > details.margin-note p { font-size:11px; line-height:1.6; }
+}
+@media(max-width:360px) {
+ .grid.home-editorial > a.card,
+ .grid.home-editorial > a.card:first-child,
+ .grid.home-editorial > a.card:last-child { grid-template-columns:70px minmax(0,1fr); min-height:130px; }
+ .grid.home-editorial > a.card .card-image,
+ .grid.home-editorial > a.card:first-child .card-image,
+ .grid.home-editorial > a.card:last-child .card-image { width:70px; height:82px; }
+ .grid.home-editorial > a.card .card-image img { width:62px; height:74px; }
+}
