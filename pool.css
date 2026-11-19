@@ -673,3 +673,134 @@ body.hero-in-view #gooseCompanion:not(.is-dragging) { visibility:hidden; opacity
 main[data-route-transition] { pointer-events:none; }
 main h1[tabindex="-1"]:focus,main h2[tabindex="-1"]:focus { outline:none; }
 @media(prefers-reduced-motion:reduce) { main[data-route-transition] { transform:none!important; } }
+
+/* Quiet pool-side details continue below the hero. They stay behind all controls. */
+#collection {
+ position:relative;
+ isolation:isolate;
+ overflow:hidden;
+ background:
+  linear-gradient(180deg,#ffffff 0%,#fbfeff 72%,#f6fbfd 100%);
+}
+#collection::before {
+ content:"";
+ position:absolute;
+ z-index:0;
+ left:-8%; right:-8%; top:-45px;
+ height:116px;
+ opacity:.42;
+ pointer-events:none;
+ background:
+  radial-gradient(ellipse 70px 17px at 10% 85%,transparent 57%,#c9e7f3 59%,transparent 64%),
+  radial-gradient(ellipse 95px 22px at 29% 60%,transparent 57%,#d7eef6 59%,transparent 64%),
+  radial-gradient(ellipse 88px 19px at 53% 82%,transparent 57%,#c9e7f3 59%,transparent 64%),
+  radial-gradient(ellipse 120px 24px at 78% 60%,transparent 57%,#d7eef6 59%,transparent 64%),
+  radial-gradient(ellipse 80px 18px at 97% 84%,transparent 57%,#c9e7f3 59%,transparent 64%);
+}
+#collection::after {
+ content:"";
+ position:absolute;
+ z-index:0;
+ width:92px; height:92px;
+ right:2.5%; top:31%;
+ border:2px solid #cfeaf5;
+ border-radius:50%;
+ opacity:.48;
+ pointer-events:none;
+ box-shadow:0 0 0 11px #e6f5fa,0 0 0 21px #f3fbfd;
+}
+#collection > * { position:relative; z-index:1; }
+.section-top { position:relative; }
+.section-top::after {
+ content:"";
+ position:absolute;
+ left:0; bottom:-18px;
+ width:76px; height:7px;
+ border-top:2px solid #acd7e9;
+ border-radius:50%;
+ opacity:.8;
+ transform:rotate(-2deg);
+ pointer-events:none;
+}
+.topics { position:relative; }
+.topics::after {
+ content:"";
+ position:absolute;
+ right:-9px; top:-13px;
+ width:7px; height:7px;
+ border-radius:50%;
+ background:#c6e6f2;
+ opacity:.8;
+ box-shadow:15px 18px 0 -1px #dbeff6, -13px 34px 0 -2px #b9dfed, 29px 47px 0 -2px #dbeff6;
+ pointer-events:none;
+}
+.play-entries { position:relative; }
+.play-entries::before {
+ content:"";
+ position:absolute;
+ left:18px; top:1px;
+ width:108px; height:16px;
+ opacity:.64;
+ background:repeating-linear-gradient(135deg,#acd7e8 0 10px,#e7f6fb 10px 20px);
+ clip-path:polygon(0 0,100% 0,88% 100%,12% 100%);
+ transform:rotate(-2deg);
+ pointer-events:none;
+}
+.play-entries::after {
+ content:"";
+ position:absolute;
+ right:8px; top:5px;
+ width:56px; height:56px;
+ border:2px solid #d7eef6;
+ border-radius:50%;
+ opacity:.65;
+ pointer-events:none;
+}
+.play-entries-head { position:relative; }
+.play-entries-head::after {
+ content:"";
+ position:absolute;
+ left:0; bottom:-9px;
+ width:100%; height:1px;
+ background:linear-gradient(90deg,#c4e5f1 0 18%,transparent 18% 22%,#d9eff6 22% 56%,transparent 56%);
+ opacity:.8;
+ pointer-events:none;
+}
+.price-notebook { position:relative; }
+.price-notebook::before {
+ content:"";
+ position:absolute;
+ left:4%; right:4%; top:-17px;
+ height:18px;
+ border-top:2px solid #d1ebf4;
+ border-radius:50%;
+ opacity:.85;
+ pointer-events:none;
+}
+main>aside {
+ position:relative;
+ overflow:hidden;
+ background:linear-gradient(180deg,#f8fcfd 0%,#f1f9fc 100%);
+}
+main>aside::before {
+ content:"";
+ position:absolute;
+ width:130px; height:130px;
+ right:8%; top:22px;
+ border:2px solid #cce8f2;
+ border-radius:50%;
+ opacity:.48;
+ box-shadow:0 0 0 10px #e7f5f9,0 0 0 21px #f4fbfd;
+ pointer-events:none;
+}
+@media(max-width:700px) {
+ #collection::after { width:54px; height:54px; right:-5px; top:28%; box-shadow:0 0 0 7px #e6f5fa,0 0 0 14px #f3fbfd; }
+ .section-top::after { bottom:-12px; }
+ .topics::after { right:-4px; top:-9px; }
+ .play-entries::before { left:3px; width:72px; height:12px; }
+ .play-entries::after { width:36px; height:36px; right:-4px; top:7px; }
+ main>aside::before { width:78px; height:78px; right:-10px; top:20px; box-shadow:0 0 0 7px #e7f5f9; }
+}
+@media(prefers-reduced-motion:reduce) {
+ #collection::before,#collection::after,.play-entries::before,.play-entries::after,main>aside::before { opacity:.3; }
+}
